@@ -1,0 +1,643 @@
+
+/* =========================================================
+   CloudCase AI
+   Shared Responsive Styles
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Large Tablets / Small Desktops
+   --------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+
+    .container {
+        max-width: 960px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .dashboard-sidebar {
+        width: 240px;
+    }
+
+    .dashboard-main {
+        margin-left: 240px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Tablets
+   --------------------------------------------------------- */
+
+@media (max-width: 992px) {
+
+    html {
+        font-size: 15px;
+    }
+
+    .container {
+        max-width: 720px;
+    }
+
+    /* Navbar */
+
+    .navbar-nav {
+        padding: 15px 0;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 0 !important;
+    }
+
+    /* Hero */
+
+    .hero-section {
+        padding: 90px 0 70px;
+    }
+
+    .hero-content {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.7rem;
+    }
+
+    .hero-content p {
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-preview {
+        margin: 0 auto;
+        max-width: 650px;
+    }
+
+    /* General Sections */
+
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    .section-title {
+        font-size: 2.1rem;
+    }
+
+    /* Features */
+
+    .feature-card {
+        margin-bottom: 20px;
+    }
+
+    /* Workflow */
+
+    .workflow-step {
+        margin-bottom: 30px;
+    }
+
+    /* Report Structure */
+
+    .structure-card {
+        margin-bottom: 20px;
+    }
+
+    /* Dashboard */
+
+    .dashboard-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1050;
+    }
+
+    .dashboard-sidebar.active {
+        transform: translateX(0);
+    }
+
+    .dashboard-main {
+        margin-left: 0;
+    }
+
+    .dashboard-menu-toggle {
+        display: flex !important;
+    }
+
+    .dashboard-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        z-index: 1040;
+    }
+
+    .dashboard-overlay.active {
+        display: block;
+    }
+
+    .dashboard-topbar {
+        padding-left: 20px;
+    }
+
+    .dashboard-content {
+        padding: 25px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .architecture-flow {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    /* Generator */
+
+    .generator-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .generator-sidebar {
+        position: static;
+    }
+
+    /* Report */
+
+    .report-page {
+        width: 100%;
+        min-height: auto;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Mobile Devices
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 92%;
+        max-width: none;
+    }
+
+    /* Navbar */
+
+    .navbar {
+        padding: 12px 0;
+    }
+
+    .navbar-brand {
+        font-size: 1.15rem;
+    }
+
+    .navbar-brand img {
+        max-height: 35px;
+    }
+
+    .navbar-actions {
+        margin-top: 10px;
+    }
+
+    /* Hero */
+
+    .hero-section {
+        padding: 70px 0 50px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.25rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-preview {
+        padding: 10px;
+    }
+
+    /* Floating Cards */
+
+    .floating-card {
+        display: none;
+    }
+
+    /* Stats */
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-number {
+        font-size: 1.7rem;
+    }
+
+    .stat-label {
+        font-size: 0.78rem;
+    }
+
+    /* Sections */
+
+    .section-padding {
+        padding: 55px 0;
+    }
+
+    .section-title {
+        font-size: 1.85rem;
+    }
+
+    .section-description {
+        font-size: 0.95rem;
+    }
+
+    /* Feature Cards */
+
+    .feature-card {
+        padding: 22px;
+    }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+
+    /* Workflow */
+
+    .workflow-step {
+        padding: 20px;
+    }
+
+    /* CTA */
+
+    .cta-section {
+        padding: 45px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Dashboard */
+
+    .dashboard-topbar {
+        min-height: 65px;
+        padding: 12px 16px;
+    }
+
+    .dashboard-content {
+        padding: 20px 16px;
+    }
+
+    .dashboard-welcome h1 {
+        font-size: 1.65rem;
+    }
+
+    .dashboard-welcome p {
+        font-size: 0.9rem;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .dashboard-stat-card {
+        padding: 16px;
+    }
+
+    .dashboard-stat-value {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-stat-label {
+        font-size: 0.75rem;
+    }
+
+    .quick-create-card {
+        padding: 22px;
+    }
+
+    .quick-create-card h2 {
+        font-size: 1.25rem;
+    }
+
+    .quick-create-form {
+        flex-direction: column;
+    }
+
+    .quick-create-form .btn {
+        width: 100%;
+    }
+
+    .recent-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    /* Architecture */
+
+    .architecture-flow {
+        justify-content: flex-start;
+    }
+
+    .architecture-node {
+        min-width: 80px;
+    }
+
+    .architecture-node i {
+        font-size: 1.1rem;
+    }
+
+    .architecture-node span {
+        font-size: 0.7rem;
+    }
+
+    /* Tables */
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    /* Generator */
+
+    .generator-page {
+        padding: 25px 15px;
+    }
+
+    .generator-card {
+        padding: 20px;
+    }
+
+    .generator-title {
+        font-size: 1.6rem;
+    }
+
+    .topic-examples {
+        gap: 8px;
+    }
+
+    .topic-example {
+        font-size: 0.78rem;
+    }
+
+    /* Report */
+
+    .report-container {
+        padding: 15px;
+    }
+
+    .report-page {
+        padding: 25px 20px;
+    }
+
+    .report-title {
+        font-size: 1.8rem;
+    }
+
+    .report-section-title {
+        font-size: 1.35rem;
+    }
+
+    .report-table {
+        font-size: 0.8rem;
+    }
+
+    /* Footer */
+
+    .footer {
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Small Mobile Devices
+   --------------------------------------------------------- */
+
+@media (max-width: 576px) {
+
+    .container {
+        width: 94%;
+    }
+
+    /* Buttons */
+
+    .btn {
+        font-size: 0.88rem;
+        padding: 10px 16px;
+    }
+
+    /* Hero */
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-badge {
+        font-size: 0.72rem;
+        padding: 7px 11px;
+    }
+
+    /* Stats */
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Dashboard */
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-stat-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .dashboard-stat-icon {
+        margin-bottom: 0;
+    }
+
+    .dashboard-user-info {
+        display: none;
+    }
+
+    .dashboard-notification {
+        display: none;
+    }
+
+    /* Sidebar */
+
+    .dashboard-sidebar {
+        width: 280px;
+    }
+
+    /* Architecture */
+
+    .architecture-line {
+        width: 20px;
+    }
+
+    /* Cards */
+
+    .card {
+        border-radius: 12px;
+    }
+
+    /* Report */
+
+    .report-page {
+        padding: 20px 15px;
+    }
+
+    .report-cover {
+        min-height: 500px;
+    }
+
+    .report-cover h1 {
+        font-size: 1.9rem;
+    }
+
+    /* Footer */
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Extra Small Devices
+   --------------------------------------------------------- */
+
+@media (max-width: 380px) {
+
+    html {
+        font-size: 13px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-content {
+        padding: 16px 12px;
+    }
+
+    .dashboard-welcome h1 {
+        font-size: 1.4rem;
+    }
+
+    .dashboard-sidebar {
+        width: 260px;
+    }
+
+    .quick-create-card {
+        padding: 18px;
+    }
+
+    .report-page {
+        padding: 16px 12px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   Print / A4 Support
+   --------------------------------------------------------- */
+
+@media print {
+
+    body {
+        background: #ffffff !important;
+    }
+
+    .navbar,
+    .dashboard-sidebar,
+    .dashboard-topbar,
+    .dashboard-menu-toggle,
+    .dashboard-overlay,
+    .btn,
+    .no-print,
+    .footer {
+        display: none !important;
+    }
+
+    .dashboard-main {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .report-container {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .report-page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+        padding: 20mm;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-after: always;
+    }
+
+    .report-page:last-child {
+        page-break-after: auto;
+    }
+
+    @page {
+        size: A4;
+        margin: 0;
+    }
+}
+

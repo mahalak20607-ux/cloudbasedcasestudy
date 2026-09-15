@@ -1,0 +1,1036 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Case Studies | CloudCase AI</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --text: #334155;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --light: #f8fafc;
+            --blue-light: #eff6ff;
+            --white: #ffffff;
+            --danger: #dc2626;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: #f1f5f9;
+            color: var(--text);
+        }
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .top-navbar {
+            height: 72px;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary);
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+        }
+
+        .brand span {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            border: 1px solid var(--border);
+            background: #ffffff;
+            color: var(--secondary);
+            padding: 9px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .logout-btn {
+            color: var(--danger);
+        }
+
+        .logout-btn:hover {
+            border-color: #fecaca;
+            color: var(--danger);
+            background: #fff7f7;
+        }
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .page-container {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 42px 0 70px;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 28px;
+        }
+
+        .page-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--primary);
+            background: var(--blue-light);
+            border: 1px solid #dbeafe;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 {
+            margin: 0 0 7px;
+            font-size: 32px;
+            line-height: 1.2;
+            color: var(--secondary);
+            font-weight: 800;
+        }
+
+        .page-header p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .create-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 12px 17px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: 0.2s ease;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.18);
+        }
+
+        .create-btn:hover {
+            background: var(--primary-dark);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* =====================================================
+           SUMMARY CARDS
+        ===================================================== */
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .summary-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+        }
+
+        .summary-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 11px;
+            background: var(--blue-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .summary-number {
+            color: var(--secondary);
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .summary-label {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           SEARCH AREA
+        ===================================================== */
+
+        .control-panel {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 22px;
+            display: grid;
+            grid-template-columns: 1fr 240px;
+            gap: 12px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .search-box input,
+        .category-select {
+            width: 100%;
+            height: 45px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            background: #ffffff;
+            color: var(--secondary);
+            font-size: 13px;
+            font-family: inherit;
+            transition: 0.2s ease;
+        }
+
+        .search-box input {
+            padding: 0 14px 0 40px;
+        }
+
+        .category-select {
+            padding: 0 12px;
+        }
+
+        .search-box input:focus,
+        .category-select:focus {
+            border-color: #93c5fd;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+        }
+
+        /* =====================================================
+           SECTION TITLE
+        ===================================================== */
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 13px;
+        }
+
+        .results-header h2 {
+            margin: 0;
+            color: var(--secondary);
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .results-count {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           REPORT GRID
+        ===================================================== */
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        /* =====================================================
+           PROFESSIONAL REPORT CARD
+        ===================================================== */
+
+        .report-card {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+            transition: 0.22s ease;
+        }
+
+        .report-card:hover {
+            transform: translateY(-3px);
+            border-color: #bfdbfe;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+        }
+
+        .report-card-top {
+            height: 8px;
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+        }
+
+        .report-card-body {
+            padding: 21px;
+        }
+
+        .report-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            color: #1d4ed8;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .date-text {
+            color: #94a3b8;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .report-card-title {
+            margin: 0 0 9px;
+            color: var(--secondary);
+            font-size: 18px;
+            line-height: 1.4;
+            font-weight: 800;
+        }
+
+        .report-card-description {
+            margin: 0 0 17px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .topic-label {
+            color: #94a3b8;
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            margin-bottom: 5px;
+        }
+
+        .topic-name {
+            color: var(--secondary);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        /* =====================================================
+           REPORT INFORMATION
+        ===================================================== */
+
+        .report-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 12px 0;
+            border-top: 1px solid #eef2f7;
+            border-bottom: 1px solid #eef2f7;
+            margin-bottom: 16px;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item:not(:last-child) {
+            border-right: 1px solid #e8edf3;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--secondary);
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 2px;
+        }
+
+        .info-item span {
+            display: block;
+            color: #94a3b8;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+        /* =====================================================
+           CARD ACTIONS
+        ===================================================== */
+
+        .report-actions {
+            display: grid;
+            grid-template-columns: 1fr 42px;
+            gap: 8px;
+        }
+
+        .view-btn {
+            height: 40px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .view-btn:hover {
+            background: var(--primary-dark);
+            color: #ffffff;
+        }
+
+        .delete-btn {
+            height: 40px;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            background: #fff7f7;
+            color: var(--danger);
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            background: #fee2e2;
+        }
+
+        /* =====================================================
+           EMPTY STATE
+        ===================================================== */
+
+        .empty-state,
+        .no-results {
+            background: #ffffff;
+            border: 1px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 55px 25px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 17px;
+            border-radius: 18px;
+            background: var(--blue-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 29px;
+        }
+
+        .empty-state h3,
+        .no-results h3 {
+            margin: 0 0 7px;
+            color: var(--secondary);
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .empty-state p,
+        .no-results p {
+            max-width: 500px;
+            margin: 0 auto 19px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* =====================================================
+           LOADING
+        ===================================================== */
+
+        .loading-section {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 55px 20px;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 34px;
+            height: 34px;
+            border: 3px solid #dbeafe;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 14px;
+        }
+
+        .loading-section p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        .history-toast {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 3000;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 13px 17px;
+            border-radius: 9px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.2);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: 0.25s ease;
+        }
+
+        .history-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .page-footer {
+            margin-top: 40px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: #94a3b8;
+            font-size: 11px;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .control-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .top-navbar {
+                height: auto;
+                min-height: 68px;
+                padding: 12px 16px;
+            }
+
+            .brand {
+                font-size: 18px;
+            }
+
+            .brand-icon {
+                width: 34px;
+                height: 34px;
+            }
+
+            .nav-btn {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+
+            .page-container {
+                width: calc(100% - 20px);
+                padding: 28px 0 45px;
+            }
+
+            .page-header h1 {
+                font-size: 27px;
+            }
+
+            .create-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .report-card-body {
+                padding: 17px;
+            }
+
+            .report-card-meta {
+                align-items: flex-start;
+            }
+
+            .date-text {
+                white-space: normal;
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="top-navbar">
+
+        <a href="dashboard.html" class="brand">
+            <span class="brand-icon">
+                <i class="bi bi-cloud-check"></i>
+            </span>
+
+            Cloud<span>Case AI</span>
+        </a>
+
+        <div class="nav-actions">
+
+            <a href="dashboard.html" class="nav-btn">
+                <i class="bi bi-grid-1x2"></i>
+                Dashboard
+            </a>
+
+            <button id="logoutBtn" class="nav-btn logout-btn">
+                <i class="bi bi-box-arrow-right"></i>
+                Sign Out
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="page-container">
+
+        <!-- Page Header -->
+
+        <section class="page-header">
+
+            <div>
+
+                <div class="page-label">
+                    <i class="bi bi-folder2-open"></i>
+                    Report Library
+                </div>
+
+                <h1>My Case Studies</h1>
+
+                <p>
+                    View, search and manage your generated Cloud Computing
+                    case-study reports.
+                </p>
+
+            </div>
+
+            <a href="generator.html" class="create-btn">
+                <i class="bi bi-plus-lg"></i>
+                Create New Case Study
+            </a>
+
+        </section>
+
+
+        <!-- =================================================
+             SUMMARY
+        ================================================== -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    <i class="bi bi-file-earmark-text"></i>
+                </div>
+
+                <div>
+                    <div class="summary-number" id="totalReports">
+                        0
+                    </div>
+
+                    <div class="summary-label">
+                        Total Case Studies
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    <i class="bi bi-calendar-check"></i>
+                </div>
+
+                <div>
+                    <div class="summary-number" id="monthlyReports">
+                        0
+                    </div>
+
+                    <div class="summary-label">
+                        Created This Month
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    <i class="bi bi-diagram-3"></i>
+                </div>
+
+                <div>
+                    <div class="summary-number" id="topicCount">
+                        0
+                    </div>
+
+                    <div class="summary-label">
+                        Topics Explored
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SEARCH + FILTER
+        ================================================== -->
+
+        <section class="control-panel">
+
+            <div class="search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by topic, title or category..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <select id="categoryFilter" class="category-select">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="cloud-computing">
+                    Cloud Computing
+                </option>
+
+                <option value="cloud-storage">
+                    Cloud Storage
+                </option>
+
+                <option value="cloud-security">
+                    Cloud Security
+                </option>
+
+                <option value="cloud-services">
+                    Cloud Services
+                </option>
+
+                <option value="cloud-infrastructure">
+                    Cloud Infrastructure
+                </option>
+
+                <option value="cloud-development">
+                    Cloud Development
+                </option>
+
+                <option value="cloud-ai">
+                    Cloud AI
+                </option>
+
+                <option value="cloud-iot">
+                    Cloud IoT
+                </option>
+
+                <option value="cloud-healthcare">
+                    Cloud Healthcare
+                </option>
+
+                <option value="cloud-education">
+                    Cloud Education
+                </option>
+
+                <option value="cloud-business">
+                    Cloud Business
+                </option>
+
+                <option value="other">
+                    Other
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- =================================================
+             RESULTS HEADER
+        ================================================== -->
+
+        <div class="results-header">
+
+            <h2>
+                Generated Reports
+            </h2>
+
+            <span id="resultsCount" class="results-count">
+                0 reports
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <section id="loadingSection" class="loading-section">
+
+            <div class="loading-spinner"></div>
+
+            <p>
+                Loading your case studies...
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             REPORT GRID
+        ================================================== -->
+
+        <section
+            id="historyGrid"
+            class="history-grid"
+            style="display: none;"
+        ></section>
+
+
+        <!-- =================================================
+             EMPTY STATE
+        ================================================== -->
+
+        <section
+            id="emptyState"
+            class="empty-state"
+            style="display: none;"
+        >
+
+            <div class="empty-icon">
+                <i class="bi bi-file-earmark-plus"></i>
+            </div>
+
+            <h3>
+                No Case Studies Yet
+            </h3>
+
+            <p>
+                You have not generated any Cloud Computing case studies.
+                Create your first professional academic report using
+                CloudCase AI.
+            </p>
+
+            <a href="generator.html" class="create-btn">
+                <i class="bi bi-stars"></i>
+                Generate Your First Report
+            </a>
+
+        </section>
+
+
+        <!-- =================================================
+             NO SEARCH RESULTS
+        ================================================== -->
+
+        <section
+            id="noResults"
+            class="no-results"
+            style="display: none;"
+        >
+
+            <div class="empty-icon">
+                <i class="bi bi-search"></i>
+            </div>
+
+            <h3>
+                No Matching Reports
+            </h3>
+
+            <p>
+                No case study matches your current search or category filter.
+                Try another keyword or select a different category.
+            </p>
+
+        </section>
+
+
+        <footer class="page-footer">
+            CloudCase AI &copy; 2026 &nbsp;•&nbsp;
+            Professional Cloud Computing Case Study Generator
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div id="historyToast" class="history-toast"></div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script type="module" src="js/history.js"></script>
+
+</body>
+</html>
+

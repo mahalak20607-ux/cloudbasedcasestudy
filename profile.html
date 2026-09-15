@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | CloudCase AI</title>
+
+    <meta
+        name="description"
+        content="Manage your CloudCase AI profile and account settings."
+    >
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Dashboard Styles -->
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- Responsive Styles -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        /* ==========================================
+           PROFILE PAGE
+        ========================================== */
+
+        .profile-page {
+            min-height: 100vh;
+            background: #f5f7fb;
+        }
+
+        .profile-navbar {
+            height: 72px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .profile-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .profile-brand-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #1d4ed8
+            );
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .profile-brand-text {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .profile-brand-text span {
+            color: #2563eb;
+        }
+
+        .profile-navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-nav-btn {
+            border: 1px solid #dbe2ea;
+            background: #ffffff;
+            color: #334155;
+            text-decoration: none;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .profile-nav-btn:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .profile-nav-btn.primary {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: #ffffff;
+        }
+
+        .profile-nav-btn.primary:hover {
+            background: #1d4ed8;
+            color: #ffffff;
+        }
+
+        /* ==========================================
+           MAIN CONTAINER
+        ========================================== */
+
+        .profile-container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 42px 0 60px;
+        }
+
+        .profile-heading {
+            margin-bottom: 28px;
+        }
+
+        .profile-heading h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .profile-heading p {
+            margin: 0;
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        /* ==========================================
+           PROFILE LAYOUT
+        ========================================== */
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 310px 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* ==========================================
+           PROFILE SUMMARY
+        ========================================== */
+
+        .profile-summary-card,
+        .profile-settings-card,
+        .profile-security-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+        }
+
+        .profile-summary-card {
+            padding: 28px;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #4f46e5
+            );
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.22);
+        }
+
+        .profile-summary-card h2 {
+            margin: 0 0 5px;
+            color: #0f172a;
+            font-size: 20px;
+            font-weight: 800;
+            word-break: break-word;
+        }
+
+        .profile-summary-email {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+            word-break: break-word;
+        }
+
+        .profile-role {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 6px 11px;
+            border-radius: 999px;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .profile-summary-divider {
+            height: 1px;
+            background: #e5e7eb;
+            margin: 24px 0;
+        }
+
+        .profile-account-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .profile-account-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-account-icon {
+            width: 38px;
+            height: 38px;
+            flex: 0 0 38px;
+            border-radius: 9px;
+            background: #f1f5f9;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-account-text small {
+            display: block;
+            color: #94a3b8;
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+
+        .profile-account-text strong {
+            display: block;
+            color: #334155;
+            font-size: 13px;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        /* ==========================================
+           SETTINGS
+        ========================================== */
+
+        .profile-settings-card,
+        .profile-security-card {
+            padding: 30px;
+            margin-bottom: 24px;
+        }
+
+        .profile-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 25px;
+        }
+
+        .profile-card-header-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: #eff6ff;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 42px;
+            font-size: 18px;
+        }
+
+        .profile-card-header h3 {
+            margin: 0 0 4px;
+            color: #0f172a;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .profile-card-header p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .profile-field {
+            margin-bottom: 22px;
+        }
+
+        .profile-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-field label {
+            display: block;
+            margin-bottom: 8px;
+            color: #334155;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .profile-field input {
+            width: 100%;
+            height: 46px;
+            padding: 0 14px;
+            border: 1px solid #dbe2ea;
+            border-radius: 9px;
+            background: #f8fafc;
+            color: #334155;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .profile-field input:disabled {
+            cursor: not-allowed;
+            color: #64748b;
+        }
+
+        .profile-field input:focus {
+            border-color: #2563eb;
+            background: #ffffff;
+        }
+
+        .profile-field-hint {
+            margin-top: 7px;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        .profile-readonly-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 7px;
+            padding: 3px 7px;
+            border-radius: 5px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-size: 10px;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+
+        /* ==========================================
+           SECURITY
+        ========================================== */
+
+        .security-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 17px 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+
+        .security-action:first-of-type {
+            padding-top: 0;
+        }
+
+        .security-action:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .security-action-info {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .security-action-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 9px;
+            background: #f8fafc;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .security-action-info strong {
+            display: block;
+            margin-bottom: 3px;
+            color: #334155;
+            font-size: 14px;
+        }
+
+        .security-action-info span {
+            display: block;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        .security-action button {
+            border: 1px solid #dbe2ea;
+            background: #ffffff;
+            color: #334155;
+            border-radius: 8px;
+            padding: 8px 13px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .security-action button:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .logout-button {
+            border-color: #fecaca !important;
+            color: #dc2626 !important;
+        }
+
+        .logout-button:hover {
+            background: #fef2f2 !important;
+            border-color: #fca5a5 !important;
+            color: #b91c1c !important;
+        }
+
+        /* ==========================================
+           TOAST
+        ========================================== */
+
+        .profile-toast {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            max-width: 390px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            background: #0f172a;
+            color: #ffffff;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2);
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: 0.25s ease;
+            z-index: 1000;
+        }
+
+        .profile-toast.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .profile-toast.success {
+            background: #166534;
+        }
+
+        .profile-toast.error {
+            background: #b91c1c;
+        }
+
+        /* ==========================================
+           LOADING
+        ========================================== */
+
+        .profile-loading {
+            text-align: center;
+            padding: 80px 20px;
+            color: #64748b;
+        }
+
+        .profile-loading .spinner-border {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* ==========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (max-width: 850px) {
+
+            .profile-navbar {
+                padding: 0 18px;
+            }
+
+            .profile-nav-btn.dashboard-link {
+                display: none;
+            }
+
+            .profile-container {
+                width: min(100% - 28px, 700px);
+                padding-top: 30px;
+            }
+
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-summary-card {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .profile-navbar {
+                height: 64px;
+            }
+
+            .profile-brand-text {
+                font-size: 17px;
+            }
+
+            .profile-brand-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 17px;
+            }
+
+            .profile-navbar-actions {
+                gap: 6px;
+            }
+
+            .profile-nav-btn {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+            .profile-heading h1 {
+                font-size: 25px;
+            }
+
+            .profile-settings-card,
+            .profile-security-card {
+                padding: 21px;
+            }
+
+            .profile-summary-card {
+                padding: 23px;
+            }
+
+            .security-action {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .security-action button {
+                width: 100%;
+            }
+
+            .profile-toast {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile-page">
+
+    <!-- ==========================================
+         NAVBAR
+    =========================================== -->
+    <header class="profile-navbar">
+
+        <a href="dashboard.html" class="profile-brand">
+
+            <div class="profile-brand-icon">
+                <i class="bi bi-cloud-check"></i>
+            </div>
+
+            <div class="profile-brand-text">
+                CloudCase <span>AI</span>
+            </div>
+
+        </a>
+
+
+        <div class="profile-navbar-actions">
+
+            <a
+                href="dashboard.html"
+                class="profile-nav-btn dashboard-link"
+            >
+                <i class="bi bi-grid-1x2 me-1"></i>
+                Dashboard
+            </a>
+
+            <a
+                href="generator.html"
+                class="profile-nav-btn primary"
+            >
+                <i class="bi bi-plus-lg me-1"></i>
+                New Case Study
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         MAIN
+    =========================================== -->
+    <main class="profile-container">
+
+        <div class="profile-heading">
+
+            <h1>My Profile</h1>
+
+            <p>
+                Manage your CloudCase AI account information and security settings.
+            </p>
+
+        </div>
+
+
+        <!-- Loading -->
+        <div
+            id="profileLoading"
+            class="profile-loading"
+        >
+
+            <div
+                class="spinner-border"
+                role="status"
+            ></div>
+
+            <p class="mt-3 mb-0">
+                Loading your profile...
+            </p>
+
+        </div>
+
+
+        <!-- Profile Content -->
+        <div
+            id="profileContent"
+            class="profile-layout"
+            style="display: none;"
+        >
+
+            <!-- ==================================
+                 LEFT PROFILE SUMMARY
+            =================================== -->
+            <aside>
+
+                <div class="profile-summary-card">
+
+                    <div
+                        id="profileAvatar"
+                        class="profile-avatar"
+                    >
+                        U
+                    </div>
+
+                    <h2 id="profileDisplayName">
+                        User
+                    </h2>
+
+                    <p
+                        id="profileDisplayEmail"
+                        class="profile-summary-email"
+                    >
+                        user@example.com
+                    </p>
+
+                    <div class="profile-role">
+                        <i class="bi bi-person-check"></i>
+                        CloudCase User
+                    </div>
+
+
+                    <div class="profile-summary-divider"></div>
+
+
+                    <div class="profile-account-item">
+
+                        <div class="profile-account-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+
+                        <div class="profile-account-text">
+
+                            <small>Email Address</small>
+
+                            <strong id="summaryEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-account-item">
+
+                        <div class="profile-account-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+
+                        <div class="profile-account-text">
+
+                            <small>Account Created</small>
+
+                            <strong id="accountCreated">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-account-item">
+
+                        <div class="profile-account-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+
+                        <div class="profile-account-text">
+
+                            <small>Account Status</small>
+
+                            <strong>
+                                Active
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+            <!-- ==================================
+                 RIGHT CONTENT
+            =================================== -->
+            <section>
+
+
+                <!-- ACCOUNT INFORMATION -->
+                <div class="profile-settings-card">
+
+                    <div class="profile-card-header">
+
+                        <div class="profile-card-header-icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Account Information
+                            </h3>
+
+                            <p>
+                                Your basic CloudCase AI account details.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-field">
+
+                        <label for="profileName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="profileName"
+                            placeholder="Your full name"
+                            disabled
+                        >
+
+                        <div class="profile-field-hint">
+                            Your name is taken from your CloudCase AI account.
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-field">
+
+                        <label for="profileEmail">
+                            Email Address
+
+                            <span class="profile-readonly-badge">
+                                <i class="bi bi-lock"></i>
+                                Read only
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="profileEmail"
+                            placeholder="your@email.com"
+                            disabled
+                        >
+
+                        <div class="profile-field-hint">
+                            Email is managed by Firebase Authentication.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SECURITY -->
+                <div class="profile-security-card">
+
+                    <div class="profile-card-header">
+
+                        <div class="profile-card-header-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Security & Account
+                            </h3>
+
+                            <p>
+                                Manage password recovery and account access.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-action">
+
+                        <div class="security-action-info">
+
+                            <div class="security-action-icon">
+                                <i class="bi bi-key"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Reset Password
+                                </strong>
+
+                                <span>
+                                    Receive a password reset link by email.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="resetPasswordBtn"
+                        >
+                            Send Reset Link
+                        </button>
+
+                    </div>
+
+
+                    <div class="security-action">
+
+                        <div class="security-action-info">
+
+                            <div class="security-action-icon">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    My Case Studies
+                                </strong>
+
+                                <span>
+                                    View and manage your generated reports.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="historyBtn"
+                        >
+                            View History
+                        </button>
+
+                    </div>
+
+
+                    <div class="security-action">
+
+                        <div class="security-action-info">
+
+                            <div class="security-action-icon">
+                                <i class="bi bi-box-arrow-right"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Sign Out
+                                </strong>
+
+                                <span>
+                                    Sign out from your CloudCase AI account.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="logoutBtn"
+                            class="logout-button"
+                        >
+                            Sign Out
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- Toast -->
+    <div
+        id="profileToast"
+        class="profile-toast"
+        role="alert"
+        aria-live="polite"
+    ></div>
+
+</div>
+
+
+<!-- ==========================================
+     PROFILE SCRIPT
+=========================================== -->
+<script type="module" src="js/profile.js"></script>
+
+</body>
+</html>
+

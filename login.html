@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | CloudCase AI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Auth CSS -->
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <!-- Left Section -->
+        <section class="auth-info">
+
+            <div class="auth-brand">
+                <div class="brand-icon">
+                    <i class="bi bi-cloud-check-fill"></i>
+                </div>
+
+                <div>
+                    <h2>CloudCase AI</h2>
+                    <span>Cloud Computing Case Study Generator</span>
+                </div>
+            </div>
+
+            <div class="auth-info-content">
+
+                <span class="info-badge">
+                    <i class="bi bi-stars"></i>
+                    Professional Academic Reports
+                </span>
+
+                <h1>
+                    Turn any cloud topic into a
+                    <span>professional case study.</span>
+                </h1>
+
+                <p>
+                    Create structured, detailed and presentation-ready
+                    Cloud Computing case studies with architecture,
+                    technologies, security, benefits, challenges and
+                    future scope.
+                </p>
+
+                <div class="info-features">
+
+                    <div class="info-feature">
+                        <div class="feature-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+
+                        <div>
+                            <h6>15 Structured Sections</h6>
+                            <p>Complete academic-style report structure.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-feature">
+                        <div class="feature-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+
+                        <div>
+                            <h6>Cloud Architecture</h6>
+                            <p>Topic-specific architecture and system flow.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-feature">
+                        <div class="feature-icon">
+                            <i class="bi bi-printer"></i>
+                        </div>
+
+                        <div>
+                            <h6>A4 Print Ready</h6>
+                            <p>Professional report layout for submission.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="auth-info-footer">
+                <i class="bi bi-shield-check"></i>
+                Your account and generated reports are securely managed.
+            </div>
+
+        </section>
+
+
+        <!-- Right Section -->
+        <section class="auth-form-section">
+
+            <div class="auth-form-container">
+
+                <!-- Mobile Logo -->
+                <div class="mobile-brand">
+                    <div class="brand-icon">
+                        <i class="bi bi-cloud-check-fill"></i>
+                    </div>
+
+                    <h3>CloudCase AI</h3>
+                </div>
+
+
+                <div class="form-heading">
+                    <span class="small-label">WELCOME BACK</span>
+
+                    <h1>Sign in to your account</h1>
+
+                    <p>
+                        Continue creating professional cloud computing
+                        case studies.
+                    </p>
+                </div>
+
+
+                <!-- Login Form -->
+                <form id="loginForm" novalidate>
+
+                    <!-- Email -->
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                        <small class="input-error" id="emailError"></small>
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="form-group">
+
+                        <div class="label-row">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="#" id="forgotPassword">
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                                aria-label="Show password"
+                            >
+                                <i class="bi bi-eye"></i>
+                            </button>
+
+                        </div>
+
+                        <small class="input-error" id="passwordError"></small>
+
+                    </div>
+
+
+                    <!-- Remember -->
+                    <div class="remember-row">
+
+                        <label class="remember-label">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+
+                            <span class="custom-checkbox"></span>
+
+                            <span>Remember me</span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- Error / Success -->
+                    <div
+                        id="authMessage"
+                        class="auth-message"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+
+                    <!-- Login Button -->
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                        id="loginButton"
+                    >
+
+                        <span id="loginButtonText">
+                            Sign In
+                        </span>
+
+                        <span
+                            id="loginSpinner"
+                            class="spinner-border spinner-border-sm d-none"
+                            aria-hidden="true"
+                        ></span>
+
+                        <i
+                            id="loginArrow"
+                            class="bi bi-arrow-right"
+                        ></i>
+
+                    </button>
+
+                </form>
+
+
+                <!-- Divider -->
+                <div class="auth-divider">
+                    <span>Secure Authentication</span>
+                </div>
+
+
+                <!-- Security -->
+                <div class="security-note">
+
+                    <div class="security-icon">
+                        <i class="bi bi-shield-lock-fill"></i>
+                    </div>
+
+                    <div>
+                        <strong>Secure account access</strong>
+
+                        <p>
+                            Authentication is handled securely through
+                            Firebase Authentication.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Register -->
+                <div class="register-link">
+
+                    <span>Don't have an account?</span>
+
+                    <a href="register.html">
+                        Create Account
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+
+                <!-- Back Home -->
+                <div class="back-home">
+
+                    <a href="index.html">
+                        <i class="bi bi-arrow-left"></i>
+                        Back to Home
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Firebase Login -->
+    <script type="module">
+
+        import {
+            auth
+        } from "./js/firebase-config.js";
+
+        import {
+            signInWithEmailAndPassword,
+            setPersistence,
+            browserLocalPersistence,
+            browserSessionPersistence,
+            sendPasswordResetEmail
+        } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+
+        const loginForm = document.getElementById("loginForm");
+
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+
+        const rememberMe = document.getElementById("rememberMe");
+
+        const loginButton = document.getElementById("loginButton");
+        const loginButtonText = document.getElementById("loginButtonText");
+        const loginSpinner = document.getElementById("loginSpinner");
+        const loginArrow = document.getElementById("loginArrow");
+
+        const togglePassword =
+            document.getElementById("togglePassword");
+
+        const authMessage =
+            document.getElementById("authMessage");
+
+        const forgotPassword =
+            document.getElementById("forgotPassword");
+
+
+        /* --------------------------------
+           Password Visibility
+        -------------------------------- */
+
+        togglePassword.addEventListener("click", () => {
+
+            const isPassword =
+                passwordInput.type === "password";
+
+            passwordInput.type =
+                isPassword ? "text" : "password";
+
+            togglePassword.innerHTML = isPassword
+                ? '<i class="bi bi-eye-slash"></i>'
+                : '<i class="bi bi-eye"></i>';
+
+        });
+
+
+        /* --------------------------------
+           Message
+        -------------------------------- */
+
+        function showMessage(message, type = "error") {
+
+            authMessage.textContent = message;
+
+            authMessage.className =
+                `auth-message ${type}`;
+
+        }
+
+
+        function clearMessage() {
+
+            authMessage.textContent = "";
+
+            authMessage.className =
+                "auth-message";
+
+        }
+
+
+        /* --------------------------------
+           Loading State
+        -------------------------------- */
+
+        function setLoading(isLoading) {
+
+            loginButton.disabled = isLoading;
+
+            if (isLoading) {
+
+                loginButtonText.textContent =
+                    "Signing In...";
+
+                loginSpinner.classList.remove("d-none");
+
+                loginArrow.classList.add("d-none");
+
+            } else {
+
+                loginButtonText.textContent =
+                    "Sign In";
+
+                loginSpinner.classList.add("d-none");
+
+                loginArrow.classList.remove("d-none");
+
+            }
+
+        }
+
+
+        /* --------------------------------
+           Firebase Error Messages
+        -------------------------------- */
+
+        function getFirebaseErrorMessage(errorCode) {
+
+            switch (errorCode) {
+
+                case "auth/invalid-email":
+                    return "Please enter a valid email address.";
+
+                case "auth/user-not-found":
+                    return "No account was found with this email.";
+
+                case "auth/wrong-password":
+                    return "Incorrect email or password.";
+
+                case "auth/invalid-credential":
+                    return "Incorrect email or password.";
+
+                case "auth/user-disabled":
+                    return "This account has been disabled.";
+
+                case "auth/too-many-requests":
+                    return "Too many attempts. Please try again later.";
+
+                case "auth/network-request-failed":
+                    return "Network error. Please check your internet connection.";
+
+                default:
+                    return "Unable to sign in. Please try again.";
+
+            }
+
+        }
+
+
+        /* --------------------------------
+           Login
+        -------------------------------- */
+
+        loginForm.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+
+            clearMessage();
+
+            const email =
+                emailInput.value.trim();
+
+            const password =
+                passwordInput.value;
+
+
+            /* Validation */
+
+            if (!email) {
+
+                showMessage(
+                    "Please enter your email address."
+                );
+
+                emailInput.focus();
+
+                return;
+
+            }
+
+
+            if (!password) {
+
+                showMessage(
+                    "Please enter your password."
+                );
+
+                passwordInput.focus();
+
+                return;
+
+            }
+
+
+            setLoading(true);
+
+
+            try {
+
+                /* Remember me */
+
+                await setPersistence(
+                    auth,
+                    rememberMe.checked
+                        ? browserLocalPersistence
+                        : browserSessionPersistence
+                );
+
+
+                /* Firebase Login */
+
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+                showMessage(
+                    "Login successful. Redirecting...",
+                    "success"
+                );
+
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }, 700);
+
+
+            } catch (error) {
+
+                console.error(
+                    "Login Error:",
+                    error
+                );
+
+                showMessage(
+                    getFirebaseErrorMessage(
+                        error.code
+                    )
+                );
+
+                setLoading(false);
+
+            }
+
+        });
+
+
+        /* --------------------------------
+           Forgot Password
+        -------------------------------- */
+
+        forgotPassword.addEventListener(
+            "click",
+            async (event) => {
+
+                event.preventDefault();
+
+                const email =
+                    emailInput.value.trim();
+
+
+                if (!email) {
+
+                    showMessage(
+                        "Enter your email address first to reset your password."
+                    );
+
+                    emailInput.focus();
+
+                    return;
+
+                }
+
+
+                try {
+
+                    await sendPasswordResetEmail(
+                        auth,
+                        email
+                    );
+
+                    showMessage(
+                        "Password reset email sent. Check your inbox.",
+                        "success"
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "Password Reset Error:",
+                        error
+                    );
+
+                    showMessage(
+                        getFirebaseErrorMessage(
+                            error.code
+                        )
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
+

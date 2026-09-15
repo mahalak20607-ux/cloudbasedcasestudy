@@ -1,0 +1,1246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | CloudCase AI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Brand -->
+
+        <div class="sidebar-brand">
+
+            <a href="dashboard.html">
+
+                <div class="sidebar-brand-icon">
+                    <i class="bi bi-cloud-check-fill"></i>
+                </div>
+
+                <div class="sidebar-brand-text">
+
+                    <strong>CloudCase</strong>
+
+                    <span>AI</span>
+
+                </div>
+
+            </a>
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebarClose"
+                aria-label="Close sidebar"
+            >
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-label">
+                WORKSPACE
+            </div>
+
+            <a
+                href="dashboard.html"
+                class="sidebar-link active"
+            >
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a
+                href="generator.html"
+                class="sidebar-link"
+            >
+                <i class="bi bi-magic"></i>
+                <span>Create Case Study</span>
+            </a>
+
+            <a
+                href="history.html"
+                class="sidebar-link"
+            >
+                <i class="bi bi-clock-history"></i>
+                <span>My Case Studies</span>
+            </a>
+
+
+            <div class="nav-label">
+                ACCOUNT
+            </div>
+
+            <a
+                href="profile.html"
+                class="sidebar-link"
+            >
+                <i class="bi bi-person-circle"></i>
+                <span>My Profile</span>
+            </a>
+
+
+            <div class="sidebar-divider"></div>
+
+
+            <a
+                href="index.html"
+                class="sidebar-link"
+            >
+                <i class="bi bi-house"></i>
+                <span>Visit Home</span>
+            </a>
+
+            <button
+                type="button"
+                class="sidebar-link sidebar-logout"
+                id="logoutButton"
+            >
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+            </button>
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+
+                <div class="help-icon">
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+
+                <div>
+
+                    <strong>Need a case study?</strong>
+
+                    <span>
+                        Start with any cloud topic.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+        <!-- Topbar -->
+
+        <header class="dashboard-topbar">
+
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                aria-label="Open menu"
+            >
+                <i class="bi bi-list"></i>
+            </button>
+
+
+            <div class="topbar-title">
+
+                <span>
+                    Cloud Computing Workspace
+                </span>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    type="button"
+                    class="notification-button"
+                    aria-label="Notifications"
+                >
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <a
+                    href="profile.html"
+                    class="topbar-user"
+                >
+
+                    <div
+                        class="topbar-avatar"
+                        id="topbarAvatar"
+                    >
+                        U
+                    </div>
+
+                    <div class="topbar-user-info">
+
+                        <strong id="topbarName">
+                            User
+                        </strong>
+
+                        <span id="topbarEmail">
+                            user@example.com
+                        </span>
+
+                    </div>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- Content -->
+
+        <div class="dashboard-content">
+
+            <!-- Welcome -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <span class="welcome-label">
+                        <i class="bi bi-sun"></i>
+                        Welcome back
+                    </span>
+
+                    <h1>
+                        Hello, <span id="welcomeName">Student</span> 👋
+                    </h1>
+
+                    <p>
+                        Ready to create your next professional
+                        Cloud Computing case study?
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="generator.html"
+                    class="create-report-button"
+                >
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    Create Case Study
+
+                </a>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <section class="stats-grid">
+
+                <!-- Total -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Total Case Studies
+                        </span>
+
+                        <strong id="totalReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="stat-trend">
+                        <i class="bi bi-bar-chart"></i>
+                    </div>
+
+                </div>
+
+
+                <!-- This Month -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="bi bi-calendar3"></i>
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            This Month
+                        </span>
+
+                        <strong id="monthlyReports">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="stat-trend">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+
+                </div>
+
+
+                <!-- Topics -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="bi bi-diagram-3"></i>
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Topics Explored
+                        </span>
+
+                        <strong id="topicCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="stat-trend">
+                        <i class="bi bi-layers"></i>
+                    </div>
+
+                </div>
+
+
+                <!-- Sections -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        <i class="bi bi-list-ol"></i>
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>
+                            Report Sections
+                        </span>
+
+                        <strong>
+                            15
+                        </strong>
+
+                    </div>
+
+                    <div class="stat-trend">
+                        <i class="bi bi-check2-circle"></i>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK CREATE
+            ================================================== -->
+
+            <section class="quick-create-card">
+
+                <div class="quick-create-content">
+
+                    <div class="quick-create-icon">
+                        <i class="bi bi-magic"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            AI-POWERED CASE STUDY
+                        </span>
+
+                        <h2>
+                            Turn any Cloud Computing topic
+                            into a complete report.
+                        </h2>
+
+                        <p>
+                            Enter a topic such as Cloud Storage,
+                            Cloud Banking, Healthcare Cloud,
+                            E-Commerce, AI on Cloud or any other
+                            cloud computing concept.
+                        </p>
+
+                        <div class="quick-points">
+
+                            <span>
+                                <i class="bi bi-check-circle-fill"></i>
+                                15 structured sections
+                            </span>
+
+                            <span>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Cloud architecture
+                            </span>
+
+                            <span>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Security & privacy
+                            </span>
+
+                            <span>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Benefits & challenges
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="generator.html"
+                            class="quick-create-button"
+                        >
+                            Start Creating
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Architecture Visual -->
+
+                <div class="quick-architecture">
+
+                    <div class="architecture-title">
+                        <i class="bi bi-diagram-3"></i>
+                        Report Architecture
+                    </div>
+
+
+                    <div class="architecture-flow">
+
+                        <div class="architecture-node">
+                            <i class="bi bi-person"></i>
+                            <span>User</span>
+                        </div>
+
+                        <div class="architecture-line"></div>
+
+                        <div class="architecture-node">
+                            <i class="bi bi-window"></i>
+                            <span>Application</span>
+                        </div>
+
+                        <div class="architecture-line"></div>
+
+                        <div class="architecture-node cloud-node">
+                            <i class="bi bi-cloud"></i>
+                            <span>Cloud</span>
+                        </div>
+
+                        <div class="architecture-line"></div>
+
+                        <div class="architecture-node">
+                            <i class="bi bi-database"></i>
+                            <span>Data</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RECENT + STRUCTURE
+            ================================================== -->
+
+            <section class="dashboard-columns">
+
+
+                <!-- Recent Case Studies -->
+
+                <div class="dashboard-panel recent-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-eyebrow">
+                                YOUR WORK
+                            </span>
+
+                            <h2>
+                                Recent Case Studies
+                            </h2>
+
+                        </div>
+
+                        <a href="history.html">
+                            View All
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div
+                        class="recent-list"
+                        id="recentReports"
+                    >
+
+                        <!-- Loading -->
+
+                        <div class="loading-state">
+
+                            <div class="loading-spinner"></div>
+
+                            <span>
+                                Loading your case studies...
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Report Structure -->
+
+                <div class="dashboard-panel structure-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-eyebrow">
+                                REPORT FORMAT
+                            </span>
+
+                            <h2>
+                                15-Section Structure
+                            </h2>
+
+                        </div>
+
+                        <i class="bi bi-file-earmark-richtext panel-heading-icon"></i>
+
+                    </div>
+
+
+                    <div class="structure-list">
+
+                        <div class="structure-item">
+                            <span>01</span>
+                            <p>Title Page</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>02</span>
+                            <p>Abstract</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>03</span>
+                            <p>Introduction</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>04</span>
+                            <p>Background / Domain Overview</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>05</span>
+                            <p>Problem Statement</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>06</span>
+                            <p>Existing System</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>07</span>
+                            <p>Proposed Cloud Solution</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>08</span>
+                            <p>Cloud Architecture</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>09</span>
+                            <p>Technologies & Service Model</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>10</span>
+                            <p>Working / Implementation</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>11</span>
+                            <p>Security & Privacy</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>12</span>
+                            <p>Benefits</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>13</span>
+                            <p>Challenges & Limitations</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>14</span>
+                            <p>Applications & Future Scope</p>
+                        </div>
+
+                        <div class="structure-item">
+                            <span>15</span>
+                            <p>Conclusion & References</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="dashboard-footer">
+
+                <span>
+                    © 2026 CloudCase AI
+                </span>
+
+                <span>
+                    Professional Cloud Computing Case Study Generator
+                </span>
+
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     MOBILE OVERLAY
+========================================================= -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+<!-- =========================================================
+     FIREBASE DASHBOARD SCRIPT
+========================================================= -->
+
+<script type="module">
+
+    import {
+        auth,
+        db
+    } from "./js/firebase-config.js";
+
+    import {
+        onAuthStateChanged,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+    import {
+        collection,
+        query,
+        where,
+        orderBy,
+        limit,
+        getDocs
+    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
+
+    const welcomeName =
+        document.getElementById("welcomeName");
+
+    const topbarName =
+        document.getElementById("topbarName");
+
+    const topbarEmail =
+        document.getElementById("topbarEmail");
+
+    const topbarAvatar =
+        document.getElementById("topbarAvatar");
+
+    const totalReports =
+        document.getElementById("totalReports");
+
+    const monthlyReports =
+        document.getElementById("monthlyReports");
+
+    const topicCount =
+        document.getElementById("topicCount");
+
+    const recentReports =
+        document.getElementById("recentReports");
+
+    const logoutButton =
+        document.getElementById("logoutButton");
+
+
+    /* =====================================================
+       SIDEBAR
+    ====================================================== */
+
+    const sidebar =
+        document.getElementById("sidebar");
+
+    const sidebarOverlay =
+        document.getElementById("sidebarOverlay");
+
+    const mobileMenuButton =
+        document.getElementById("mobileMenuButton");
+
+    const sidebarClose =
+        document.getElementById("sidebarClose");
+
+
+    function openSidebar() {
+
+        sidebar.classList.add("open");
+
+        sidebarOverlay.classList.add("show");
+
+        document.body.classList.add(
+            "sidebar-open"
+        );
+
+    }
+
+
+    function closeSidebar() {
+
+        sidebar.classList.remove("open");
+
+        sidebarOverlay.classList.remove("show");
+
+        document.body.classList.remove(
+            "sidebar-open"
+        );
+
+    }
+
+
+    mobileMenuButton.addEventListener(
+        "click",
+        openSidebar
+    );
+
+
+    sidebarClose.addEventListener(
+        "click",
+        closeSidebar
+    );
+
+
+    sidebarOverlay.addEventListener(
+        "click",
+        closeSidebar
+    );
+
+
+    document
+        .querySelectorAll(".sidebar-link")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                closeSidebar
+            );
+
+        });
+
+
+    /* =====================================================
+       AUTH STATE
+    ====================================================== */
+
+    onAuthStateChanged(
+        auth,
+        async (user) => {
+
+            if (!user) {
+
+                window.location.href =
+                    "login.html";
+
+                return;
+
+            }
+
+
+            const displayName =
+                user.displayName ||
+                user.email?.split("@")[0] ||
+                "Student";
+
+
+            const firstName =
+                displayName
+                    .trim()
+                    .split(" ")[0];
+
+
+            welcomeName.textContent =
+                firstName;
+
+            topbarName.textContent =
+                displayName;
+
+            topbarEmail.textContent =
+                user.email || "";
+
+
+            const avatarLetter =
+                displayName
+                    .charAt(0)
+                    .toUpperCase();
+
+
+            topbarAvatar.textContent =
+                avatarLetter;
+
+
+            await loadDashboardData(
+                user.uid
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       LOAD DASHBOARD DATA
+    ====================================================== */
+
+    async function loadDashboardData(uid) {
+
+        try {
+
+            const reportsRef =
+                collection(
+                    db,
+                    "generatedCaseStudies"
+                );
+
+
+            const reportsQuery =
+                query(
+                    reportsRef,
+                    where("userId", "==", uid),
+                    orderBy(
+                        "createdAt",
+                        "desc"
+                    )
+                );
+
+
+            const snapshot =
+                await getDocs(
+                    reportsQuery
+                );
+
+
+            const reports =
+                snapshot.docs.map(
+                    doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                    })
+                );
+
+
+            /* Total */
+
+            totalReports.textContent =
+                reports.length;
+
+
+            /* Topics */
+
+            const topics =
+                new Set(
+                    reports
+                        .map(report =>
+                            String(
+                                report.topic || ""
+                            )
+                            .trim()
+                            .toLowerCase()
+                        )
+                        .filter(Boolean)
+                );
+
+
+            topicCount.textContent =
+                topics.size;
+
+
+            /* Monthly */
+
+            const currentDate =
+                new Date();
+
+            const currentMonth =
+                currentDate.getMonth();
+
+            const currentYear =
+                currentDate.getFullYear();
+
+
+            const monthly =
+                reports.filter(report => {
+
+                    if (
+                        !report.createdAt ||
+                        typeof report.createdAt.toDate !== "function"
+                    ) {
+                        return false;
+                    }
+
+
+                    const date =
+                        report.createdAt.toDate();
+
+
+                    return (
+                        date.getMonth() === currentMonth &&
+                        date.getFullYear() === currentYear
+                    );
+
+                });
+
+
+            monthlyReports.textContent =
+                monthly.length;
+
+
+            /* Recent */
+
+            renderRecentReports(
+                reports.slice(0, 5)
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Dashboard data error:",
+                error
+            );
+
+
+            /*
+             * Firestore can temporarily fail when an index
+             * has not yet been created. The dashboard still
+             * remains usable.
+             */
+
+            totalReports.textContent = "0";
+            monthlyReports.textContent = "0";
+            topicCount.textContent = "0";
+
+
+            recentReports.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="bi bi-file-earmark-plus"></i>
+                    </div>
+
+                    <h3>Start your first case study</h3>
+
+                    <p>
+                        Create a report and it will appear
+                        here automatically.
+                    </p>
+
+                    <a href="generator.html">
+                        Create Case Study
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            `;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       RENDER RECENT REPORTS
+    ====================================================== */
+
+    function renderRecentReports(
+        reports
+    ) {
+
+        if (!reports.length) {
+
+            recentReports.innerHTML = `
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        <i class="bi bi-file-earmark-plus"></i>
+                    </div>
+
+                    <h3>
+                        No case studies yet
+                    </h3>
+
+                    <p>
+                        Enter any Cloud Computing topic
+                        to create your first professional report.
+                    </p>
+
+                    <a href="generator.html">
+                        Create Case Study
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        recentReports.innerHTML =
+            reports.map(
+                report => {
+
+                    const topic =
+                        report.topic ||
+                        "Untitled Case Study";
+
+
+                    const category =
+                        report.category ||
+                        "Cloud Computing";
+
+
+                    const date =
+                        formatDate(
+                            report.createdAt
+                        );
+
+
+                    return `
+                        <a
+                            href="report.html?id=${encodeURIComponent(report.id)}"
+                            class="recent-item"
+                        >
+
+                            <div class="recent-item-icon">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </div>
+
+                            <div class="recent-item-content">
+
+                                <strong>
+                                    ${escapeHTML(topic)}
+                                </strong>
+
+                                <span>
+                                    ${escapeHTML(category)}
+                                    <span class="recent-dot">•</span>
+                                    ${date}
+                                </span>
+
+                            </div>
+
+                            <i class="bi bi-chevron-right recent-arrow"></i>
+
+                        </a>
+                    `;
+
+                }
+            ).join("");
+
+    }
+
+
+    /* =====================================================
+       DATE FORMAT
+    ====================================================== */
+
+    function formatDate(
+        timestamp
+    ) {
+
+        if (
+            !timestamp ||
+            typeof timestamp.toDate !== "function"
+        ) {
+            return "Recently created";
+        }
+
+
+        const date =
+            timestamp.toDate();
+
+
+        return date.toLocaleDateString(
+            "en-IN",
+            {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       HTML ESCAPE
+    ====================================================== */
+
+    function escapeHTML(value) {
+
+        return String(value)
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+            .replace(
+                /</g,
+                "&lt;"
+            )
+            .replace(
+                />/g,
+                "&gt;"
+            )
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+
+    /* =====================================================
+       LOGOUT
+    ====================================================== */
+
+    logoutButton.addEventListener(
+        "click",
+        async () => {
+
+            try {
+
+                await signOut(auth);
+
+                window.location.href =
+                    "login.html";
+
+            } catch (error) {
+
+                console.error(
+                    "Logout error:",
+                    error
+                );
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
+
