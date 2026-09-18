@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +6,30 @@
 
     <title>My Case Studies | CloudCase AI</title>
 
+    <!-- Bootstrap -->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
+    <!-- Bootstrap Icons -->
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
         rel="stylesheet"
     >
 
+    <!-- Google Font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
     <style>
+
+        /* =====================================================
+           ROOT
+        ====================================================== */
+
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
@@ -36,9 +43,11 @@
             --danger: #dc2626;
         }
 
+
         * {
             box-sizing: border-box;
         }
+
 
         body {
             margin: 0;
@@ -47,9 +56,10 @@
             color: var(--text);
         }
 
+
         /* =====================================================
            NAVBAR
-        ===================================================== */
+        ====================================================== */
 
         .top-navbar {
             height: 72px;
@@ -64,6 +74,7 @@
             z-index: 1000;
         }
 
+
         .brand {
             text-decoration: none;
             display: flex;
@@ -74,11 +85,16 @@
             font-weight: 800;
         }
 
+
         .brand-icon {
             width: 38px;
             height: 38px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #1d4ed8
+            );
             color: #ffffff;
             display: flex;
             align-items: center;
@@ -86,15 +102,18 @@
             font-size: 19px;
         }
 
+
         .brand span {
             color: var(--primary);
         }
+
 
         .nav-actions {
             display: flex;
             align-items: center;
             gap: 10px;
         }
+
 
         .nav-btn {
             text-decoration: none;
@@ -105,17 +124,21 @@
             border-radius: 8px;
             font-size: 13px;
             font-weight: 700;
+            cursor: pointer;
             transition: 0.2s ease;
         }
+
 
         .nav-btn:hover {
             border-color: var(--primary);
             color: var(--primary);
         }
 
+
         .logout-btn {
             color: var(--danger);
         }
+
 
         .logout-btn:hover {
             border-color: #fecaca;
@@ -123,15 +146,17 @@
             background: #fff7f7;
         }
 
+
         /* =====================================================
            PAGE
-        ===================================================== */
+        ====================================================== */
 
         .page-container {
             width: min(1180px, calc(100% - 32px));
             margin: 0 auto;
             padding: 42px 0 70px;
         }
+
 
         .page-header {
             display: flex;
@@ -140,6 +165,7 @@
             gap: 25px;
             margin-bottom: 28px;
         }
+
 
         .page-label {
             display: inline-flex;
@@ -157,6 +183,7 @@
             margin-bottom: 10px;
         }
 
+
         .page-header h1 {
             margin: 0 0 7px;
             font-size: 32px;
@@ -165,15 +192,18 @@
             font-weight: 800;
         }
 
+
         .page-header p {
             margin: 0;
             color: var(--muted);
             font-size: 14px;
         }
 
+
         .create-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             text-decoration: none;
             background: var(--primary);
@@ -184,8 +214,14 @@
             font-weight: 700;
             white-space: nowrap;
             transition: 0.2s ease;
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.18);
+            box-shadow: 0 6px 16px rgba(
+                37,
+                99,
+                235,
+                0.18
+            );
         }
+
 
         .create-btn:hover {
             background: var(--primary-dark);
@@ -193,9 +229,10 @@
             transform: translateY(-1px);
         }
 
+
         /* =====================================================
            SUMMARY CARDS
-        ===================================================== */
+        ====================================================== */
 
         .summary-grid {
             display: grid;
@@ -203,6 +240,7 @@
             gap: 16px;
             margin-bottom: 25px;
         }
+
 
         .summary-card {
             background: #ffffff;
@@ -212,8 +250,14 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+            box-shadow: 0 3px 12px rgba(
+                15,
+                23,
+                42,
+                0.04
+            );
         }
+
 
         .summary-icon {
             width: 46px;
@@ -228,6 +272,7 @@
             flex-shrink: 0;
         }
 
+
         .summary-number {
             color: var(--secondary);
             font-size: 24px;
@@ -236,15 +281,17 @@
             margin-bottom: 5px;
         }
 
+
         .summary-label {
             color: var(--muted);
             font-size: 12px;
             font-weight: 600;
         }
 
+
         /* =====================================================
-           SEARCH AREA
-        ===================================================== */
+           SEARCH
+        ====================================================== */
 
         .control-panel {
             background: #ffffff;
@@ -257,9 +304,11 @@
             gap: 12px;
         }
 
+
         .search-box {
             position: relative;
         }
+
 
         .search-box i {
             position: absolute;
@@ -269,6 +318,7 @@
             color: #94a3b8;
             font-size: 16px;
         }
+
 
         .search-box input,
         .category-select {
@@ -284,23 +334,32 @@
             transition: 0.2s ease;
         }
 
+
         .search-box input {
             padding: 0 14px 0 40px;
         }
+
 
         .category-select {
             padding: 0 12px;
         }
 
+
         .search-box input:focus,
         .category-select:focus {
             border-color: #93c5fd;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+            box-shadow: 0 0 0 3px rgba(
+                37,
+                99,
+                235,
+                0.08
+            );
         }
 
+
         /* =====================================================
-           SECTION TITLE
-        ===================================================== */
+           RESULTS HEADER
+        ====================================================== */
 
         .results-header {
             display: flex;
@@ -309,6 +368,7 @@
             margin-bottom: 13px;
         }
 
+
         .results-header h2 {
             margin: 0;
             color: var(--secondary);
@@ -316,25 +376,31 @@
             font-weight: 800;
         }
 
+
         .results-count {
             color: var(--muted);
             font-size: 12px;
             font-weight: 600;
         }
 
+
         /* =====================================================
            REPORT GRID
-        ===================================================== */
+        ====================================================== */
 
         .history-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(
+                2,
+                minmax(0, 1fr)
+            );
             gap: 18px;
         }
 
+
         /* =====================================================
-           PROFESSIONAL REPORT CARD
-        ===================================================== */
+           REPORT CARD
+        ====================================================== */
 
         .report-card {
             position: relative;
@@ -342,24 +408,42 @@
             border: 1px solid var(--border);
             border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+            box-shadow: 0 4px 16px rgba(
+                15,
+                23,
+                42,
+                0.05
+            );
             transition: 0.22s ease;
         }
+
 
         .report-card:hover {
             transform: translateY(-3px);
             border-color: #bfdbfe;
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+            box-shadow: 0 12px 28px rgba(
+                15,
+                23,
+                42,
+                0.09
+            );
         }
+
 
         .report-card-top {
             height: 8px;
-            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            background: linear-gradient(
+                90deg,
+                #2563eb,
+                #60a5fa
+            );
         }
+
 
         .report-card-body {
             padding: 21px;
         }
+
 
         .report-card-meta {
             display: flex;
@@ -368,6 +452,7 @@
             gap: 10px;
             margin-bottom: 14px;
         }
+
 
         .category-badge {
             display: inline-flex;
@@ -384,12 +469,14 @@
             letter-spacing: 0.3px;
         }
 
+
         .date-text {
             color: #94a3b8;
             font-size: 10px;
             font-weight: 600;
             white-space: nowrap;
         }
+
 
         .report-card-title {
             margin: 0 0 9px;
@@ -399,12 +486,14 @@
             font-weight: 800;
         }
 
+
         .report-card-description {
             margin: 0 0 17px;
             color: var(--muted);
             font-size: 12px;
             line-height: 1.7;
         }
+
 
         .topic-label {
             color: #94a3b8;
@@ -415,6 +504,7 @@
             margin-bottom: 5px;
         }
 
+
         .topic-name {
             color: var(--secondary);
             font-size: 13px;
@@ -422,9 +512,10 @@
             margin-bottom: 16px;
         }
 
+
         /* =====================================================
-           REPORT INFORMATION
-        ===================================================== */
+           REPORT INFO
+        ====================================================== */
 
         .report-info {
             display: grid;
@@ -436,13 +527,16 @@
             margin-bottom: 16px;
         }
 
+
         .info-item {
             text-align: center;
         }
 
+
         .info-item:not(:last-child) {
             border-right: 1px solid #e8edf3;
         }
+
 
         .info-item strong {
             display: block;
@@ -452,6 +546,7 @@
             margin-bottom: 2px;
         }
 
+
         .info-item span {
             display: block;
             color: #94a3b8;
@@ -459,15 +554,17 @@
             font-weight: 600;
         }
 
+
         /* =====================================================
-           CARD ACTIONS
-        ===================================================== */
+           ACTIONS
+        ====================================================== */
 
         .report-actions {
             display: grid;
             grid-template-columns: 1fr 42px;
             gap: 8px;
         }
+
 
         .view-btn {
             height: 40px;
@@ -485,10 +582,12 @@
             transition: 0.2s ease;
         }
 
+
         .view-btn:hover {
             background: var(--primary-dark);
             color: #ffffff;
         }
+
 
         .delete-btn {
             height: 40px;
@@ -501,13 +600,15 @@
             transition: 0.2s ease;
         }
 
+
         .delete-btn:hover {
             background: #fee2e2;
         }
 
+
         /* =====================================================
-           EMPTY STATE
-        ===================================================== */
+           EMPTY / NO RESULTS
+        ====================================================== */
 
         .empty-state,
         .no-results {
@@ -517,6 +618,7 @@
             padding: 55px 25px;
             text-align: center;
         }
+
 
         .empty-icon {
             width: 68px;
@@ -531,6 +633,7 @@
             font-size: 29px;
         }
 
+
         .empty-state h3,
         .no-results h3 {
             margin: 0 0 7px;
@@ -538,6 +641,7 @@
             font-size: 19px;
             font-weight: 800;
         }
+
 
         .empty-state p,
         .no-results p {
@@ -548,9 +652,10 @@
             line-height: 1.7;
         }
 
+
         /* =====================================================
            LOADING
-        ===================================================== */
+        ====================================================== */
 
         .loading-section {
             background: #ffffff;
@@ -559,6 +664,7 @@
             padding: 55px 20px;
             text-align: center;
         }
+
 
         .loading-spinner {
             width: 34px;
@@ -570,21 +676,26 @@
             margin: 0 auto 14px;
         }
 
+
         .loading-section p {
             margin: 0;
             color: var(--muted);
             font-size: 13px;
         }
 
+
         @keyframes spin {
+
             to {
                 transform: rotate(360deg);
             }
+
         }
+
 
         /* =====================================================
            TOAST
-        ===================================================== */
+        ====================================================== */
 
         .history-toast {
             position: fixed;
@@ -597,21 +708,28 @@
             border-radius: 9px;
             font-size: 12px;
             font-weight: 600;
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.2);
+            box-shadow: 0 12px 30px rgba(
+                15,
+                23,
+                42,
+                0.2
+            );
             opacity: 0;
             pointer-events: none;
             transform: translateY(10px);
             transition: 0.25s ease;
         }
 
+
         .history-toast.show {
             opacity: 1;
             transform: translateY(0);
         }
 
+
         /* =====================================================
            FOOTER
-        ===================================================== */
+        ====================================================== */
 
         .page-footer {
             margin-top: 40px;
@@ -622,9 +740,10 @@
             font-size: 11px;
         }
 
+
         /* =====================================================
            RESPONSIVE
-        ===================================================== */
+        ====================================================== */
 
         @media (max-width: 900px) {
 
@@ -632,19 +751,24 @@
                 grid-template-columns: 1fr;
             }
 
+
             .summary-grid {
                 grid-template-columns: 1fr;
             }
+
 
             .control-panel {
                 grid-template-columns: 1fr;
             }
 
+
             .page-header {
                 align-items: flex-start;
                 flex-direction: column;
             }
+
         }
+
 
         @media (max-width: 600px) {
 
@@ -654,49 +778,60 @@
                 padding: 12px 16px;
             }
 
+
             .brand {
                 font-size: 18px;
             }
+
 
             .brand-icon {
                 width: 34px;
                 height: 34px;
             }
 
+
             .nav-btn {
                 padding: 8px 10px;
                 font-size: 11px;
             }
+
 
             .page-container {
                 width: calc(100% - 20px);
                 padding: 28px 0 45px;
             }
 
+
             .page-header h1 {
                 font-size: 27px;
             }
 
+
             .create-btn {
                 width: 100%;
-                justify-content: center;
             }
+
 
             .report-card-body {
                 padding: 17px;
             }
 
+
             .report-card-meta {
                 align-items: flex-start;
             }
+
 
             .date-text {
                 white-space: normal;
                 text-align: right;
             }
+
         }
+
     </style>
 </head>
+
 
 <body>
 
@@ -706,24 +841,40 @@
 
     <nav class="top-navbar">
 
-        <a href="dashboard.html" class="brand">
+        <a
+            href="dashboard.html"
+            class="brand"
+        >
+
             <span class="brand-icon">
                 <i class="bi bi-cloud-check"></i>
             </span>
 
             Cloud<span>Case AI</span>
+
         </a>
+
 
         <div class="nav-actions">
 
-            <a href="dashboard.html" class="nav-btn">
+            <a
+                href="dashboard.html"
+                class="nav-btn"
+            >
                 <i class="bi bi-grid-1x2"></i>
                 Dashboard
             </a>
 
-            <button id="logoutBtn" class="nav-btn logout-btn">
+
+            <button
+                id="logoutBtn"
+                class="nav-btn logout-btn"
+                type="button"
+            >
+
                 <i class="bi bi-box-arrow-right"></i>
                 Sign Out
+
             </button>
 
         </div>
@@ -732,34 +883,48 @@
 
 
     <!-- =====================================================
-         MAIN CONTENT
+         MAIN
     ====================================================== -->
 
     <main class="page-container">
 
-        <!-- Page Header -->
+        <!-- Header -->
 
         <section class="page-header">
 
             <div>
 
                 <div class="page-label">
+
                     <i class="bi bi-folder2-open"></i>
+
                     Report Library
+
                 </div>
 
-                <h1>My Case Studies</h1>
+
+                <h1>
+                    My Case Studies
+                </h1>
+
 
                 <p>
-                    View, search and manage your generated Cloud Computing
-                    case-study reports.
+                    View, search and manage your generated
+                    Cloud Computing case-study reports.
                 </p>
 
             </div>
 
-            <a href="generator.html" class="create-btn">
+
+            <a
+                href="generator.html"
+                class="create-btn"
+            >
+
                 <i class="bi bi-plus-lg"></i>
+
                 Create New Case Study
+
             </a>
 
         </section>
@@ -774,17 +939,26 @@
             <div class="summary-card">
 
                 <div class="summary-icon">
+
                     <i class="bi bi-file-earmark-text"></i>
+
                 </div>
 
+
                 <div>
-                    <div class="summary-number" id="totalReports">
+
+                    <div
+                        class="summary-number"
+                        id="totalReports"
+                    >
                         0
                     </div>
+
 
                     <div class="summary-label">
                         Total Case Studies
                     </div>
+
                 </div>
 
             </div>
@@ -793,17 +967,26 @@
             <div class="summary-card">
 
                 <div class="summary-icon">
+
                     <i class="bi bi-calendar-check"></i>
+
                 </div>
 
+
                 <div>
-                    <div class="summary-number" id="monthlyReports">
+
+                    <div
+                        class="summary-number"
+                        id="monthlyReports"
+                    >
                         0
                     </div>
+
 
                     <div class="summary-label">
                         Created This Month
                     </div>
+
                 </div>
 
             </div>
@@ -812,17 +995,26 @@
             <div class="summary-card">
 
                 <div class="summary-icon">
+
                     <i class="bi bi-diagram-3"></i>
+
                 </div>
 
+
                 <div>
-                    <div class="summary-number" id="topicCount">
+
+                    <div
+                        class="summary-number"
+                        id="topicCount"
+                    >
                         0
                     </div>
+
 
                     <div class="summary-label">
                         Topics Explored
                     </div>
+
                 </div>
 
             </div>
@@ -831,7 +1023,7 @@
 
 
         <!-- =================================================
-             SEARCH + FILTER
+             SEARCH
         ================================================== -->
 
         <section class="control-panel">
@@ -850,7 +1042,10 @@
             </div>
 
 
-            <select id="categoryFilter" class="category-select">
+            <select
+                id="categoryFilter"
+                class="category-select"
+            >
 
                 <option value="all">
                     All Categories
@@ -919,7 +1114,11 @@
                 Generated Reports
             </h2>
 
-            <span id="resultsCount" class="results-count">
+
+            <span
+                id="resultsCount"
+                class="results-count"
+            >
                 0 reports
             </span>
 
@@ -930,7 +1129,10 @@
              LOADING
         ================================================== -->
 
-        <section id="loadingSection" class="loading-section">
+        <section
+            id="loadingSection"
+            class="loading-section"
+        >
 
             <div class="loading-spinner"></div>
 
@@ -953,7 +1155,7 @@
 
 
         <!-- =================================================
-             EMPTY STATE
+             EMPTY
         ================================================== -->
 
         <section
@@ -963,22 +1165,33 @@
         >
 
             <div class="empty-icon">
+
                 <i class="bi bi-file-earmark-plus"></i>
+
             </div>
+
 
             <h3>
                 No Case Studies Yet
             </h3>
 
+
             <p>
-                You have not generated any Cloud Computing case studies.
-                Create your first professional academic report using
-                CloudCase AI.
+                You have not generated any Cloud Computing
+                case studies. Create your first professional
+                academic report using CloudCase AI.
             </p>
 
-            <a href="generator.html" class="create-btn">
+
+            <a
+                href="generator.html"
+                class="create-btn"
+            >
+
                 <i class="bi bi-stars"></i>
+
                 Generate Your First Report
+
             </a>
 
         </section>
@@ -995,24 +1208,33 @@
         >
 
             <div class="empty-icon">
+
                 <i class="bi bi-search"></i>
+
             </div>
+
 
             <h3>
                 No Matching Reports
             </h3>
 
+
             <p>
-                No case study matches your current search or category filter.
-                Try another keyword or select a different category.
+                No case study matches your current search
+                or category filter.
             </p>
 
         </section>
 
 
         <footer class="page-footer">
-            CloudCase AI &copy; 2026 &nbsp;•&nbsp;
+
+            CloudCase AI &copy; 2026
+
+            &nbsp;•&nbsp;
+
             Professional Cloud Computing Case Study Generator
+
         </footer>
 
     </main>
@@ -1022,15 +1244,1332 @@
          TOAST
     ====================================================== -->
 
-    <div id="historyToast" class="history-toast"></div>
+    <div
+        id="historyToast"
+        class="history-toast"
+    ></div>
 
 
     <!-- =====================================================
-         JAVASCRIPT
+         FIREBASE + HISTORY LOGIC
     ====================================================== -->
 
-    <script type="module" src="js/history.js"></script>
+    <script type="module">
+
+        /* =================================================
+           FIREBASE
+        ================================================== */
+
+        import {
+            auth,
+            db
+        } from "./js/firebase-config.js";
+
+
+        import {
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+
+        import {
+            collection,
+            query,
+            where,
+            getDocs,
+            deleteDoc,
+            doc
+        } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+
+        /* =================================================
+           ELEMENTS
+        ================================================== */
+
+        const totalReports =
+            document.getElementById(
+                "totalReports"
+            );
+
+
+        const monthlyReports =
+            document.getElementById(
+                "monthlyReports"
+            );
+
+
+        const topicCount =
+            document.getElementById(
+                "topicCount"
+            );
+
+
+        const resultsCount =
+            document.getElementById(
+                "resultsCount"
+            );
+
+
+        const searchInput =
+            document.getElementById(
+                "searchInput"
+            );
+
+
+        const categoryFilter =
+            document.getElementById(
+                "categoryFilter"
+            );
+
+
+        const historyGrid =
+            document.getElementById(
+                "historyGrid"
+            );
+
+
+        const loadingSection =
+            document.getElementById(
+                "loadingSection"
+            );
+
+
+        const emptyState =
+            document.getElementById(
+                "emptyState"
+            );
+
+
+        const noResults =
+            document.getElementById(
+                "noResults"
+            );
+
+
+        const logoutBtn =
+            document.getElementById(
+                "logoutBtn"
+            );
+
+
+        const toast =
+            document.getElementById(
+                "historyToast"
+            );
+
+
+        /* =================================================
+           DATA
+        ================================================== */
+
+        let allReports = [];
+
+        let currentUser = null;
+
+
+        /* =================================================
+           AUTH
+        ================================================== */
+
+        onAuthStateChanged(
+            auth,
+            async (user) => {
+
+                if (!user) {
+
+                    window.location.href =
+                        "login.html";
+
+                    return;
+
+                }
+
+
+                currentUser = user;
+
+
+                await loadReports(
+                    user.uid
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           LOAD REPORTS
+        ================================================== */
+
+        async function loadReports(uid) {
+
+            try {
+
+                loadingSection.style.display =
+                    "block";
+
+
+                historyGrid.style.display =
+                    "none";
+
+
+                emptyState.style.display =
+                    "none";
+
+
+                noResults.style.display =
+                    "none";
+
+
+                const reportsRef =
+                    collection(
+                        db,
+                        "generatedCaseStudies"
+                    );
+
+
+                /*
+                 * IMPORTANT:
+                 *
+                 * Only where() is used.
+                 *
+                 * We do NOT use orderBy().
+                 *
+                 * This avoids Firestore composite
+                 * index problems.
+                 */
+
+                const reportsQuery =
+                    query(
+                        reportsRef,
+                        where(
+                            "userId",
+                            "==",
+                            uid
+                        )
+                    );
+
+
+                const snapshot =
+                    await getDocs(
+                        reportsQuery
+                    );
+
+
+                allReports =
+                    snapshot.docs.map(
+                        document => ({
+
+                            id:
+                                document.id,
+
+                            ...document.data()
+
+                        })
+                    );
+
+
+                /* =========================================
+                   SORT NEWEST FIRST
+                ========================================== */
+
+                allReports.sort(
+                    (a, b) => {
+
+                        const dateA =
+                            getDateValue(
+                                a.createdAt
+                            );
+
+
+                        const dateB =
+                            getDateValue(
+                                b.createdAt
+                            );
+
+
+                        return dateB - dateA;
+
+                    }
+                );
+
+
+                /* =========================================
+                   UPDATE SUMMARY
+                ========================================== */
+
+                updateSummary();
+
+
+                /* =========================================
+                   DISPLAY REPORTS
+                ========================================== */
+
+                renderReports(
+                    allReports
+                );
+
+
+                console.log(
+                    "History loaded:",
+                    allReports
+                );
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "History loading error:",
+                    error
+                );
+
+
+                loadingSection.style.display =
+                    "none";
+
+
+                historyGrid.style.display =
+                    "none";
+
+
+                emptyState.style.display =
+                    "block";
+
+
+                emptyState.querySelector("h3")
+                    .textContent =
+                    "Unable to Load Case Studies";
+
+
+                emptyState.querySelector("p")
+                    .textContent =
+                    "Please refresh the page and try again.";
+
+
+                showToast(
+                    "Unable to load case studies."
+                );
+
+            }
+
+        }
+
+
+        /* =================================================
+           SUMMARY COUNTS
+        ================================================== */
+
+        function updateSummary() {
+
+            /*
+             * TOTAL
+             */
+
+            totalReports.textContent =
+                allReports.length;
+
+
+            /*
+             * UNIQUE TOPICS
+             */
+
+            const uniqueTopics =
+                new Set();
+
+
+            allReports.forEach(
+                report => {
+
+                    const topic =
+                        String(
+                            report.topic || ""
+                        )
+                            .trim()
+                            .toLowerCase();
+
+
+                    if (topic) {
+
+                        uniqueTopics.add(
+                            topic
+                        );
+
+                    }
+
+                }
+            );
+
+
+            topicCount.textContent =
+                uniqueTopics.size;
+
+
+            /*
+             * CURRENT MONTH
+             */
+
+            const now =
+                new Date();
+
+
+            const currentMonth =
+                now.getMonth();
+
+
+            const currentYear =
+                now.getFullYear();
+
+
+            let monthCount = 0;
+
+
+            allReports.forEach(
+                report => {
+
+                    const date =
+                        getDate(
+                            report.createdAt
+                        );
+
+
+                    if (!date) {
+
+                        return;
+
+                    }
+
+
+                    if (
+                        date.getMonth() ===
+                            currentMonth
+                        &&
+                        date.getFullYear() ===
+                            currentYear
+                    ) {
+
+                        monthCount++;
+
+                    }
+
+                }
+            );
+
+
+            monthlyReports.textContent =
+                monthCount;
+
+        }
+
+
+        /* =================================================
+           RENDER REPORTS
+        ================================================== */
+
+        function renderReports(
+            reports
+        ) {
+
+            loadingSection.style.display =
+                "none";
+
+
+            if (!allReports.length) {
+
+                historyGrid.style.display =
+                    "none";
+
+
+                emptyState.style.display =
+                    "block";
+
+
+                noResults.style.display =
+                    "none";
+
+
+                resultsCount.textContent =
+                    "0 reports";
+
+
+                return;
+
+            }
+
+
+            if (!reports.length) {
+
+                historyGrid.style.display =
+                    "none";
+
+
+                emptyState.style.display =
+                    "none";
+
+
+                noResults.style.display =
+                    "block";
+
+
+                resultsCount.textContent =
+                    "0 reports";
+
+
+                return;
+
+            }
+
+
+            emptyState.style.display =
+                "none";
+
+
+            noResults.style.display =
+                "none";
+
+
+            historyGrid.style.display =
+                "grid";
+
+
+            resultsCount.textContent =
+                `${reports.length} ${
+                    reports.length === 1
+                        ? "report"
+                        : "reports"
+                }`;
+
+
+            historyGrid.innerHTML =
+                reports
+                    .map(
+                        report =>
+                            createReportCard(
+                                report
+                            )
+                    )
+                    .join("");
+
+        }
+
+
+        /* =================================================
+           REPORT CARD
+        ================================================== */
+
+        function createReportCard(
+            report
+        ) {
+
+            const topic =
+                report.topic ||
+                "Untitled Case Study";
+
+
+            const category =
+                report.category ||
+                "cloud-computing";
+
+
+            const style =
+                report.reportStyle ||
+                "Professional";
+
+
+            const sections =
+                report.totalSections ||
+                15;
+
+
+            const date =
+                formatDate(
+                    report.createdAt
+                );
+
+
+            const description =
+                getDescription(
+                    report
+                );
+
+
+            const categoryName =
+                formatCategory(
+                    category
+                );
+
+
+            return `
+
+                <article
+                    class="report-card"
+                >
+
+                    <div
+                        class="report-card-top"
+                    ></div>
+
+
+                    <div
+                        class="report-card-body"
+                    >
+
+                        <div
+                            class="report-card-meta"
+                        >
+
+                            <span
+                                class="category-badge"
+                            >
+
+                                <i
+                                    class="bi bi-cloud"
+                                ></i>
+
+                                ${escapeHTML(
+                                    categoryName
+                                )}
+
+                            </span>
+
+
+                            <span
+                                class="date-text"
+                            >
+
+                                ${escapeHTML(
+                                    date
+                                )}
+
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="report-card-title"
+                        >
+
+                            ${escapeHTML(
+                                topic
+                            )}
+
+                        </h3>
+
+
+                        <p
+                            class="report-card-description"
+                        >
+
+                            ${escapeHTML(
+                                description
+                            )}
+
+                        </p>
+
+
+                        <div
+                            class="topic-label"
+                        >
+                            Topic
+                        </div>
+
+
+                        <div
+                            class="topic-name"
+                        >
+
+                            ${escapeHTML(
+                                topic
+                            )}
+
+                        </div>
+
+
+                        <div
+                            class="report-info"
+                        >
+
+                            <div
+                                class="info-item"
+                            >
+
+                                <strong>
+                                    <i class="bi bi-list-ol"></i>
+                                    ${sections}
+                                </strong>
+
+                                <span>
+                                    Sections
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="info-item"
+                            >
+
+                                <strong>
+                                    <i class="bi bi-file-text"></i>
+                                    ${escapeHTML(
+                                        style
+                                    )}
+                                </strong>
+
+                                <span>
+                                    Report Style
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="info-item"
+                            >
+
+                                <strong>
+                                    <i class="bi bi-cloud-check"></i>
+                                    Ready
+                                </strong>
+
+                                <span>
+                                    Status
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="report-actions"
+                        >
+
+                            <a
+                                href="report.html?id=${encodeURIComponent(
+                                    report.id
+                                )}"
+                                class="view-btn"
+                            >
+
+                                <i
+                                    class="bi bi-eye"
+                                ></i>
+
+                                View Report
+
+                            </a>
+
+
+                            <button
+                                type="button"
+                                class="delete-btn"
+                                data-id="${escapeHTML(
+                                    report.id
+                                )}"
+                                title="Delete Report"
+                                aria-label="Delete Report"
+                            >
+
+                                <i
+                                    class="bi bi-trash3"
+                                ></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }
+
+
+        /* =================================================
+           DESCRIPTION
+        ================================================== */
+
+        function getDescription(
+            report
+        ) {
+
+            if (
+                report.reportContent &&
+                typeof report.reportContent ===
+                    "object"
+            ) {
+
+                const content =
+                    report.reportContent;
+
+
+                if (
+                    content.abstract &&
+                    typeof content.abstract ===
+                        "string"
+                ) {
+
+                    return shorten(
+                        content.abstract,
+                        145
+                    );
+
+                }
+
+            }
+
+
+            return "Professional academic Cloud Computing case study generated using CloudCase AI.";
+
+        }
+
+
+        /* =================================================
+           SEARCH
+        ================================================== */
+
+        searchInput.addEventListener(
+            "input",
+            applyFilters
+        );
+
+
+        categoryFilter.addEventListener(
+            "change",
+            applyFilters
+        );
+
+
+        function applyFilters() {
+
+            const search =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            const selectedCategory =
+                categoryFilter.value;
+
+
+            const filtered =
+                allReports.filter(
+                    report => {
+
+                        const topic =
+                            String(
+                                report.topic ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const title =
+                            String(
+                                report.title ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const category =
+                            String(
+                                report.category ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const matchesSearch =
+                            !search
+                            ||
+                            topic.includes(
+                                search
+                            )
+                            ||
+                            title.includes(
+                                search
+                            )
+                            ||
+                            category.includes(
+                                search
+                            );
+
+
+                        const matchesCategory =
+                            selectedCategory ===
+                                "all"
+                            ||
+                            category ===
+                                selectedCategory;
+
+
+                        return (
+                            matchesSearch &&
+                            matchesCategory
+                        );
+
+                    }
+                );
+
+
+            renderReports(
+                filtered
+            );
+
+        }
+
+
+        /* =================================================
+           DELETE REPORT
+        ================================================== */
+
+        historyGrid.addEventListener(
+            "click",
+            async (event) => {
+
+                const deleteButton =
+                    event.target.closest(
+                        ".delete-btn"
+                    );
+
+
+                if (!deleteButton) {
+
+                    return;
+
+                }
+
+
+                const reportId =
+                    deleteButton.dataset.id;
+
+
+                if (!reportId) {
+
+                    return;
+
+                }
+
+
+                const confirmed =
+                    window.confirm(
+                        "Are you sure you want to delete this case study?"
+                    );
+
+
+                if (!confirmed) {
+
+                    return;
+
+                }
+
+
+                try {
+
+                    await deleteDoc(
+                        doc(
+                            db,
+                            "generatedCaseStudies",
+                            reportId
+                        )
+                    );
+
+
+                    allReports =
+                        allReports.filter(
+                            report =>
+                                report.id !==
+                                reportId
+                        );
+
+
+                    updateSummary();
+
+
+                    applyFilters();
+
+
+                    showToast(
+                        "Case study deleted successfully."
+                    );
+
+                }
+
+
+                catch (error) {
+
+                    console.error(
+                        "Delete error:",
+                        error
+                    );
+
+
+                    showToast(
+                        "Unable to delete the case study."
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           LOGOUT
+        ================================================== */
+
+        logoutBtn.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    await signOut(
+                        auth
+                    );
+
+
+                    window.location.href =
+                        "login.html";
+
+                }
+
+
+                catch (error) {
+
+                    console.error(
+                        "Logout error:",
+                        error
+                    );
+
+
+                    showToast(
+                        "Unable to sign out."
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           FIREBASE DATE
+        ================================================== */
+
+        function getDate(
+            timestamp
+        ) {
+
+            if (!timestamp) {
+
+                return null;
+
+            }
+
+
+            /*
+             * Firebase Timestamp
+             */
+
+            if (
+                typeof timestamp.toDate ===
+                    "function"
+            ) {
+
+                return timestamp.toDate();
+
+            }
+
+
+            /*
+             * JavaScript Date
+             */
+
+            if (
+                timestamp instanceof Date
+            ) {
+
+                return timestamp;
+
+            }
+
+
+            /*
+             * Timestamp-like object
+             */
+
+            if (
+                typeof timestamp.seconds ===
+                    "number"
+            ) {
+
+                return new Date(
+                    timestamp.seconds * 1000
+                );
+
+            }
+
+
+            /*
+             * String / number
+             */
+
+            const date =
+                new Date(
+                    timestamp
+                );
+
+
+            if (
+                !Number.isNaN(
+                    date.getTime()
+                )
+            ) {
+
+                return date;
+
+            }
+
+
+            return null;
+
+        }
+
+
+        function getDateValue(
+            timestamp
+        ) {
+
+            const date =
+                getDate(
+                    timestamp
+                );
+
+
+            return date
+                ? date.getTime()
+                : 0;
+
+        }
+
+
+        /* =================================================
+           FORMAT DATE
+        ================================================== */
+
+        function formatDate(
+            timestamp
+        ) {
+
+            const date =
+                getDate(
+                    timestamp
+                );
+
+
+            if (!date) {
+
+                return "Recently created";
+
+            }
+
+
+            return date.toLocaleDateString(
+                "en-IN",
+                {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           CATEGORY
+        ================================================== */
+
+        function formatCategory(
+            category
+        ) {
+
+            const names = {
+
+                "cloud-computing":
+                    "Cloud Computing",
+
+                "cloud-storage":
+                    "Cloud Storage",
+
+                "cloud-security":
+                    "Cloud Security",
+
+                "cloud-services":
+                    "Cloud Services",
+
+                "cloud-infrastructure":
+                    "Cloud Infrastructure",
+
+                "cloud-development":
+                    "Cloud Development",
+
+                "cloud-ai":
+                    "Cloud AI",
+
+                "cloud-iot":
+                    "Cloud IoT",
+
+                "cloud-healthcare":
+                    "Cloud Healthcare",
+
+                "cloud-education":
+                    "Cloud Education",
+
+                "cloud-business":
+                    "Cloud Business",
+
+                "other":
+                    "Other"
+
+            };
+
+
+            return (
+                names[
+                    String(
+                        category
+                    ).toLowerCase()
+                ]
+                ||
+                String(
+                    category
+                )
+            );
+
+        }
+
+
+        /* =================================================
+           SHORTEN TEXT
+        ================================================== */
+
+        function shorten(
+            text,
+            maxLength
+        ) {
+
+            const value =
+                String(
+                    text || ""
+                ).trim();
+
+
+            if (
+                value.length <=
+                    maxLength
+            ) {
+
+                return value;
+
+            }
+
+
+            return (
+                value.substring(
+                    0,
+                    maxLength
+                ).trim()
+                +
+                "..."
+            );
+
+        }
+
+
+        /* =================================================
+           HTML ESCAPE
+        ================================================== */
+
+        function escapeHTML(
+            value
+        ) {
+
+            return String(
+                value ?? ""
+            )
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+        /* =================================================
+           TOAST
+        ================================================== */
+
+        let toastTimer;
+
+
+        function showToast(
+            message
+        ) {
+
+            toast.textContent =
+                message;
+
+
+            toast.classList.add(
+                "show"
+            );
+
+
+            clearTimeout(
+                toastTimer
+            );
+
+
+            toastTimer =
+                setTimeout(
+                    () => {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    3000
+                );
+
+        }
+
+    </script>
 
 </body>
 </html>
-

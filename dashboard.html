@@ -1,12 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Dashboard | CloudCase AI</title>
 
@@ -43,8 +39,6 @@
 
     <aside class="sidebar" id="sidebar">
 
-        <!-- Brand -->
-
         <div class="sidebar-brand">
 
             <a href="dashboard.html">
@@ -54,11 +48,8 @@
                 </div>
 
                 <div class="sidebar-brand-text">
-
                     <strong>CloudCase</strong>
-
                     <span>AI</span>
-
                 </div>
 
             </a>
@@ -132,6 +123,7 @@
                 <span>Visit Home</span>
             </a>
 
+
             <button
                 type="button"
                 class="sidebar-link sidebar-logout"
@@ -155,13 +147,11 @@
                 </div>
 
                 <div>
-
                     <strong>Need a case study?</strong>
 
                     <span>
                         Start with any cloud topic.
                     </span>
-
                 </div>
 
             </div>
@@ -192,11 +182,9 @@
 
 
             <div class="topbar-title">
-
                 <span>
                     Cloud Computing Workspace
                 </span>
-
             </div>
 
 
@@ -245,7 +233,9 @@
         </header>
 
 
-        <!-- Content -->
+        <!-- =====================================================
+             DASHBOARD CONTENT
+        ====================================================== -->
 
         <div class="dashboard-content">
 
@@ -261,7 +251,9 @@
                     </span>
 
                     <h1>
-                        Hello, <span id="welcomeName">Student</span> 👋
+                        Hello,
+                        <span id="welcomeName">Student</span>
+                        👋
                     </h1>
 
                     <p>
@@ -432,6 +424,7 @@
                             cloud computing concept.
                         </p>
 
+
                         <div class="quick-points">
 
                             <span>
@@ -455,6 +448,7 @@
                             </span>
 
                         </div>
+
 
                         <a
                             href="generator.html"
@@ -482,29 +476,55 @@
                     <div class="architecture-flow">
 
                         <div class="architecture-node">
+
                             <i class="bi bi-person"></i>
-                            <span>User</span>
+
+                            <span>
+                                User
+                            </span>
+
                         </div>
 
+
                         <div class="architecture-line"></div>
+
 
                         <div class="architecture-node">
+
                             <i class="bi bi-window"></i>
-                            <span>Application</span>
+
+                            <span>
+                                Application
+                            </span>
+
                         </div>
 
+
                         <div class="architecture-line"></div>
+
 
                         <div class="architecture-node cloud-node">
+
                             <i class="bi bi-cloud"></i>
-                            <span>Cloud</span>
+
+                            <span>
+                                Cloud
+                            </span>
+
                         </div>
+
 
                         <div class="architecture-line"></div>
 
+
                         <div class="architecture-node">
+
                             <i class="bi bi-database"></i>
-                            <span>Data</span>
+
+                            <span>
+                                Data
+                            </span>
+
                         </div>
 
                     </div>
@@ -519,7 +539,6 @@
             ================================================== -->
 
             <section class="dashboard-columns">
-
 
                 <!-- Recent Case Studies -->
 
@@ -539,9 +558,13 @@
 
                         </div>
 
+
                         <a href="history.html">
+
                             View All
+
                             <i class="bi bi-arrow-right"></i>
+
                         </a>
 
                     </div>
@@ -551,8 +574,6 @@
                         class="recent-list"
                         id="recentReports"
                     >
-
-                        <!-- Loading -->
 
                         <div class="loading-state">
 
@@ -676,9 +697,7 @@
             </section>
 
 
-            <!-- =================================================
-                 FOOTER
-            ================================================== -->
+            <!-- Footer -->
 
             <footer class="dashboard-footer">
 
@@ -715,22 +734,26 @@
 
 <script type="module">
 
+    /* =====================================================
+       FIREBASE IMPORTS
+    ====================================================== */
+
     import {
         auth,
         db
     } from "./js/firebase-config.js";
+
 
     import {
         onAuthStateChanged,
         signOut
     } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
+
     import {
         collection,
         query,
         where,
-        orderBy,
-        limit,
         getDocs
     } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
@@ -790,9 +813,7 @@
 
         sidebarOverlay.classList.add("show");
 
-        document.body.classList.add(
-            "sidebar-open"
-        );
+        document.body.classList.add("sidebar-open");
 
     }
 
@@ -803,9 +824,7 @@
 
         sidebarOverlay.classList.remove("show");
 
-        document.body.classList.remove(
-            "sidebar-open"
-        );
+        document.body.classList.remove("sidebar-open");
 
     }
 
@@ -858,6 +877,10 @@
             }
 
 
+            /* =================================================
+               USER INFORMATION
+            ================================================== */
+
             const displayName =
                 user.displayName ||
                 user.email?.split("@")[0] ||
@@ -890,6 +913,10 @@
                 avatarLetter;
 
 
+            /* =================================================
+               LOAD FIRESTORE DATA
+            ================================================== */
+
             await loadDashboardData(
                 user.uid
             );
@@ -913,13 +940,29 @@
                 );
 
 
+            /*
+             * IMPORTANT:
+             *
+             * We intentionally use only where().
+             *
+             * The previous version used:
+             *
+             * where("userId", "==", uid)
+             * + orderBy("createdAt", "desc")
+             *
+             * That combination can require a Firestore
+             * composite index.
+             *
+             * We sort the results in JavaScript instead.
+             */
+
             const reportsQuery =
                 query(
                     reportsRef,
-                    where("userId", "==", uid),
-                    orderBy(
-                        "createdAt",
-                        "desc"
+                    where(
+                        "userId",
+                        "==",
+                        uid
                     )
                 );
 
@@ -930,34 +973,76 @@
                 );
 
 
-            const reports =
+            let reports =
                 snapshot.docs.map(
                     doc => ({
+
                         id: doc.id,
+
                         ...doc.data()
+
                     })
                 );
 
 
-            /* Total */
+            /* =================================================
+               SORT NEWEST FIRST
+            ================================================== */
+
+            reports.sort(
+                (a, b) => {
+
+                    const dateA =
+                        a.createdAt &&
+                        typeof a.createdAt.toDate === "function"
+                            ? a.createdAt
+                                .toDate()
+                                .getTime()
+                            : 0;
+
+
+                    const dateB =
+                        b.createdAt &&
+                        typeof b.createdAt.toDate === "function"
+                            ? b.createdAt
+                                .toDate()
+                                .getTime()
+                            : 0;
+
+
+                    return dateB - dateA;
+
+                }
+            );
+
+
+            /* =================================================
+               TOTAL CASE STUDIES
+            ================================================== */
 
             totalReports.textContent =
                 reports.length;
 
 
-            /* Topics */
+            /* =================================================
+               UNIQUE TOPICS
+            ================================================== */
 
             const topics =
                 new Set(
+
                     reports
-                        .map(report =>
-                            String(
-                                report.topic || ""
-                            )
-                            .trim()
-                            .toLowerCase()
+                        .map(
+                            report =>
+                                String(
+                                    report.topic || ""
+                                )
+                                    .trim()
+                                    .toLowerCase()
                         )
+
                         .filter(Boolean)
+
                 );
 
 
@@ -965,53 +1050,92 @@
                 topics.size;
 
 
-            /* Monthly */
+            /* =================================================
+               THIS MONTH
+            ================================================== */
 
             const currentDate =
                 new Date();
 
+
             const currentMonth =
                 currentDate.getMonth();
+
 
             const currentYear =
                 currentDate.getFullYear();
 
 
             const monthly =
-                reports.filter(report => {
+                reports.filter(
+                    report => {
 
-                    if (
-                        !report.createdAt ||
-                        typeof report.createdAt.toDate !== "function"
-                    ) {
-                        return false;
+                        if (
+                            !report.createdAt ||
+                            typeof report.createdAt.toDate !==
+                                "function"
+                        ) {
+
+                            return false;
+
+                        }
+
+
+                        const date =
+                            report.createdAt.toDate();
+
+
+                        return (
+
+                            date.getMonth() ===
+                                currentMonth
+
+                            &&
+
+                            date.getFullYear() ===
+                                currentYear
+
+                        );
+
                     }
-
-
-                    const date =
-                        report.createdAt.toDate();
-
-
-                    return (
-                        date.getMonth() === currentMonth &&
-                        date.getFullYear() === currentYear
-                    );
-
-                });
+                );
 
 
             monthlyReports.textContent =
                 monthly.length;
 
 
-            /* Recent */
+            /* =================================================
+               RECENT REPORTS
+            ================================================== */
 
             renderRecentReports(
                 reports.slice(0, 5)
             );
 
 
-        } catch (error) {
+            /* =================================================
+               DEBUG INFORMATION
+            ================================================== */
+
+            console.log(
+                "CloudCase AI Dashboard:",
+                {
+                    totalCaseStudies:
+                        reports.length,
+
+                    thisMonth:
+                        monthly.length,
+
+                    topicsExplored:
+                        topics.size
+                }
+            );
+
+        }
+
+
+        catch (error) {
 
             console.error(
                 "Dashboard data error:",
@@ -1020,34 +1144,51 @@
 
 
             /*
-             * Firestore can temporarily fail when an index
-             * has not yet been created. The dashboard still
-             * remains usable.
+             * Keep dashboard usable if Firestore
+             * temporarily fails.
              */
 
-            totalReports.textContent = "0";
-            monthlyReports.textContent = "0";
-            topicCount.textContent = "0";
+            totalReports.textContent =
+                "0";
+
+            monthlyReports.textContent =
+                "0";
+
+            topicCount.textContent =
+                "0";
 
 
             recentReports.innerHTML = `
+
                 <div class="empty-state">
+
                     <div class="empty-icon">
+
                         <i class="bi bi-file-earmark-plus"></i>
+
                     </div>
 
-                    <h3>Start your first case study</h3>
+
+                    <h3>
+                        Unable to load case studies
+                    </h3>
+
 
                     <p>
-                        Create a report and it will appear
-                        here automatically.
+                        Please refresh the page and try again.
                     </p>
 
+
                     <a href="generator.html">
+
                         Create Case Study
+
                         <i class="bi bi-arrow-right"></i>
+
                     </a>
+
                 </div>
+
             `;
 
         }
@@ -1066,27 +1207,37 @@
         if (!reports.length) {
 
             recentReports.innerHTML = `
+
                 <div class="empty-state">
 
                     <div class="empty-icon">
+
                         <i class="bi bi-file-earmark-plus"></i>
+
                     </div>
+
 
                     <h3>
                         No case studies yet
                     </h3>
+
 
                     <p>
                         Enter any Cloud Computing topic
                         to create your first professional report.
                     </p>
 
+
                     <a href="generator.html">
+
                         Create Case Study
+
                         <i class="bi bi-arrow-right"></i>
+
                     </a>
 
                 </div>
+
             `;
 
             return;
@@ -1095,56 +1246,74 @@
 
 
         recentReports.innerHTML =
-            reports.map(
-                report => {
 
-                    const topic =
-                        report.topic ||
-                        "Untitled Case Study";
+            reports
 
+                .map(
+                    report => {
 
-                    const category =
-                        report.category ||
-                        "Cloud Computing";
+                        const topic =
+                            report.topic ||
+                            "Untitled Case Study";
 
 
-                    const date =
-                        formatDate(
-                            report.createdAt
-                        );
+                        const category =
+                            report.category ||
+                            "Cloud Computing";
 
 
-                    return `
-                        <a
-                            href="report.html?id=${encodeURIComponent(report.id)}"
-                            class="recent-item"
-                        >
+                        const date =
+                            formatDate(
+                                report.createdAt
+                            );
 
-                            <div class="recent-item-icon">
-                                <i class="bi bi-file-earmark-text"></i>
-                            </div>
 
-                            <div class="recent-item-content">
+                        return `
 
-                                <strong>
-                                    ${escapeHTML(topic)}
-                                </strong>
+                            <a
+                                href="report.html?id=${encodeURIComponent(report.id)}"
+                                class="recent-item"
+                            >
 
-                                <span>
-                                    ${escapeHTML(category)}
-                                    <span class="recent-dot">•</span>
-                                    ${date}
-                                </span>
+                                <div class="recent-item-icon">
 
-                            </div>
+                                    <i class="bi bi-file-earmark-text"></i>
 
-                            <i class="bi bi-chevron-right recent-arrow"></i>
+                                </div>
 
-                        </a>
-                    `;
 
-                }
-            ).join("");
+                                <div class="recent-item-content">
+
+                                    <strong>
+                                        ${escapeHTML(topic)}
+                                    </strong>
+
+
+                                    <span>
+
+                                        ${escapeHTML(category)}
+
+                                        <span class="recent-dot">
+                                            •
+                                        </span>
+
+                                        ${date}
+
+                                    </span>
+
+                                </div>
+
+
+                                <i class="bi bi-chevron-right recent-arrow"></i>
+
+                            </a>
+
+                        `;
+
+                    }
+                )
+
+                .join("");
 
     }
 
@@ -1159,9 +1328,12 @@
 
         if (
             !timestamp ||
-            typeof timestamp.toDate !== "function"
+            typeof timestamp.toDate !==
+                "function"
         ) {
+
             return "Recently created";
+
         }
 
 
@@ -1185,25 +1357,32 @@
        HTML ESCAPE
     ====================================================== */
 
-    function escapeHTML(value) {
+    function escapeHTML(
+        value
+    ) {
 
         return String(value)
+
             .replace(
                 /&/g,
                 "&amp;"
             )
+
             .replace(
                 /</g,
                 "&lt;"
             )
+
             .replace(
                 />/g,
                 "&gt;"
             )
+
             .replace(
                 /"/g,
                 "&quot;"
             )
+
             .replace(
                 /'/g,
                 "&#039;"
@@ -1222,12 +1401,17 @@
 
             try {
 
-                await signOut(auth);
+                await signOut(
+                    auth
+                );
+
 
                 window.location.href =
                     "login.html";
 
-            } catch (error) {
+            }
+
+            catch (error) {
 
                 console.error(
                     "Logout error:",
